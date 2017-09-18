@@ -1,16 +1,15 @@
 package com.example.doublez;
 
+import android.content.Context;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -22,6 +21,7 @@ public class MainActivity extends AppCompatActivity
 
     private List<MainContent> maincontentList=new ArrayList<>();
     private DrawerLayout mDrawerLayout;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         //Toolbar
-        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
 
         //DrawerLayout 点击按钮打开菜单
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity
         RecyclerView recyclerView=(RecyclerView)findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        MainContentAdapter adapter=new MainContentAdapter(maincontentList);
+        MainContentAdapter adapter=new MainContentAdapter(maincontentList,MainActivity.this);
         recyclerView.setAdapter(adapter);
 
     }

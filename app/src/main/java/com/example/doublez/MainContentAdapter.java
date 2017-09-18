@@ -1,5 +1,8 @@
 package com.example.doublez;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,13 +10,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.List;
+
+import static android.app.PendingIntent.getActivity;
 
 public class MainContentAdapter extends RecyclerView.Adapter<MainContentAdapter.ViewHolder>
 {
 
     private List<MainContent> mainContentList;
+    private Activity activity;
 
     static class ViewHolder extends RecyclerView.ViewHolder
     {
@@ -30,9 +35,10 @@ public class MainContentAdapter extends RecyclerView.Adapter<MainContentAdapter.
         }
     }
 
-    public MainContentAdapter(List<MainContent> mainContentList)
+    public MainContentAdapter(List<MainContent> mainContentList,Activity activity)
     {
         this.mainContentList=mainContentList;
+        this.activity=activity;
     }
 
     @Override
@@ -47,7 +53,15 @@ public class MainContentAdapter extends RecyclerView.Adapter<MainContentAdapter.
             {
                 int position=holder.getAdapterPosition();
                 MainContent maincontent=mainContentList.get(position);
-                //Item响应
+                // Item的Text响应
+                switch(maincontent.getName())
+                {
+                    case "Apple":
+                        Intent intent=new Intent(activity,Content_1.class);
+                        activity.startActivity(intent);
+                        break;
+                    default:
+                }
                 Toast.makeText(v.getContext(),"You clicked text "+maincontent.getName(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -58,7 +72,7 @@ public class MainContentAdapter extends RecyclerView.Adapter<MainContentAdapter.
             {
                 int position=holder.getAdapterPosition();
                 MainContent maincontent=mainContentList.get(position);
-                //Item响应
+                // Item的Image响应
                 Toast.makeText(v.getContext(),"You clicked image "+maincontent.getName(), Toast.LENGTH_SHORT).show();
             }
         });

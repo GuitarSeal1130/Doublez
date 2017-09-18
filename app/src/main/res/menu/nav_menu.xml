@@ -5,15 +5,15 @@
         <item
             android:id="@+id/nav_call"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Call" />
+            android:title="排行榜" />
         <item
             android:id="@+id/nav_friends"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Friends" />
+            android:title="最近配音" />
         <item
             android:id="@+id/nav_location"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Location" />
+            android:title="登出" />
     </group>
 
 </menu>

@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/mail"
-        android:text="Tony Green"
+        android:text="用户名"
         android:textColor="#FFF"
         android:textSize="14sp" />
 
