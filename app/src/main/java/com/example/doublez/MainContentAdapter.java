@@ -1,7 +1,6 @@
 package com.example.doublez;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,10 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import java.util.List;
 
-import static android.app.PendingIntent.getActivity;
 
 public class MainContentAdapter extends RecyclerView.Adapter<MainContentAdapter.ViewHolder>
 {
@@ -62,7 +59,6 @@ public class MainContentAdapter extends RecyclerView.Adapter<MainContentAdapter.
                         break;
                     default:
                 }
-                Toast.makeText(v.getContext(),"You clicked text "+maincontent.getName(), Toast.LENGTH_SHORT).show();
             }
         });
         holder.mainContentImage.setOnClickListener(new View.OnClickListener()
@@ -73,7 +69,7 @@ public class MainContentAdapter extends RecyclerView.Adapter<MainContentAdapter.
                 int position=holder.getAdapterPosition();
                 MainContent maincontent=mainContentList.get(position);
                 // Item的Image响应
-                Toast.makeText(v.getContext(),"You clicked image "+maincontent.getName(), Toast.LENGTH_SHORT).show();
+
             }
         });
         return holder;

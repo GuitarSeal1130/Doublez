@@ -18,4 +18,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <Button
+        android:id="@+id/clip_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clip 1"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/clip_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clip 2"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/clip_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clip 3"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/clip_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clip 4"
+        android:textAllCaps="false"/>
+
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.doublez;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -11,10 +12,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity
 {
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         //Toolbar
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar1);
@@ -48,14 +52,16 @@ public class MainActivity extends AppCompatActivity
             {
                 switch(item.getItemId())
                 {
-                    case R.id.nav_call:
+                    case R.id.nav_1:
                         Toast.makeText(MainActivity.this,"Call", Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.nav_friends:
+                    case R.id.nav_2:
                         Toast.makeText(MainActivity.this,"Friends", Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.nav_location:
-                        Toast.makeText(MainActivity.this,"Location", Toast.LENGTH_SHORT).show();
+                    case R.id.nav_3:
+                        Intent intent=new Intent(MainActivity.this,Login.class);
+                        startActivity(intent);
+                        finish();
                         break;
                     default:
                 }
@@ -106,6 +112,12 @@ public class MainActivity extends AppCompatActivity
             MainContent strawberry=new MainContent("Strawberry",R.drawable.strawberry_pic);
             maincontentList.add(strawberry);
         }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        finish();
     }
 
 }

@@ -4,13 +4,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
-import java.io.File;
 
 public class Content_1 extends AppCompatActivity
 {
+
     private VideoView videoView;
 
     @Override
@@ -25,10 +27,61 @@ public class Content_1 extends AppCompatActivity
 
         // VdeoView
         videoView = (VideoView) findViewById(R.id.video_view);
-        videoView.setMediaController(new MediaController(this));
+        //videoView.setMediaController(new MediaController(this));  // 播放器控制按钮
         Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.rook1);
         videoView.setVideoURI(rawUri);
+
+        //Button
+        Button button1=(Button)findViewById(R.id.clip_1);
+        button1.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.rook1);
+                videoView.setVideoURI(rawUri);
+                videoView.start();
+            }
+        });
+
+        Button button2=(Button)findViewById(R.id.clip_2);
+        button2.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.rook2);
+                videoView.setVideoURI(rawUri);
+                videoView.start();
+            }
+        });
+
+        Button button3=(Button)findViewById(R.id.clip_3);
+        button3.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ash);
+                videoView.setVideoURI(rawUri);
+                videoView.start();
+            }
+        });
+
+        Button button4=(Button)findViewById(R.id.clip_4);
+        button4.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ying);
+                videoView.setVideoURI(rawUri);
+                videoView.start();
+            }
+        });
+
     }
+
 }
 
 
