@@ -69,6 +69,14 @@ public class MainContentAdapter extends RecyclerView.Adapter<MainContentAdapter.
                 int position=holder.getAdapterPosition();
                 MainContent maincontent=mainContentList.get(position);
                 // Item的Image响应
+                switch(maincontent.getName())
+                {
+                    case "Apple":
+                        Intent intent=new Intent(activity,Content_1.class);
+                        activity.startActivity(intent);
+                        break;
+                    default:
+                }
 
             }
         });

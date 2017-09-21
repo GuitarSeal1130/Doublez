@@ -53,10 +53,10 @@ public class MainActivity extends AppCompatActivity
                 switch(item.getItemId())
                 {
                     case R.id.nav_1:
-                        Toast.makeText(MainActivity.this,"Call", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this,"排行榜", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.nav_2:
-                        Toast.makeText(MainActivity.this,"Friends", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this,"最近配音", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.nav_3:
                         Intent intent=new Intent(MainActivity.this,Login.class);

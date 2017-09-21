@@ -1,5 +1,6 @@
 package com.example.doublez;
 
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -41,6 +42,15 @@ public class Content_1 extends AppCompatActivity
                 Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.rook1);
                 videoView.setVideoURI(rawUri);
                 videoView.start();
+                videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                {
+                    @Override
+                    public void onCompletion(MediaPlayer mp)
+                    {
+                        videoView.start();
+
+                    }
+                });
             }
         });
 
@@ -53,6 +63,15 @@ public class Content_1 extends AppCompatActivity
                 Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.rook2);
                 videoView.setVideoURI(rawUri);
                 videoView.start();
+                videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                {
+                    @Override
+                    public void onCompletion(MediaPlayer mp)
+                    {
+                        videoView.start();
+
+                    }
+                });
             }
         });
 
@@ -65,6 +84,15 @@ public class Content_1 extends AppCompatActivity
                 Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ash);
                 videoView.setVideoURI(rawUri);
                 videoView.start();
+                videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                {
+                    @Override
+                    public void onCompletion(MediaPlayer mp)
+                    {
+                        videoView.start();
+
+                    }
+                });
             }
         });
 
@@ -77,6 +105,15 @@ public class Content_1 extends AppCompatActivity
                 Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ying);
                 videoView.setVideoURI(rawUri);
                 videoView.start();
+                videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                {
+                    @Override
+                    public void onCompletion(MediaPlayer mp)
+                    {
+                        videoView.start();
+
+                    }
+                });
             }
         });
 
