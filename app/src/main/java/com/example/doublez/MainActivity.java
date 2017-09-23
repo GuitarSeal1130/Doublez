@@ -1,6 +1,5 @@
 package com.example.doublez;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,7 +11,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,16 +20,12 @@ public class MainActivity extends AppCompatActivity
 {
 
     private List<MainContent> maincontentList=new ArrayList<>();
-    private DrawerLayout mDrawerLayout;
-    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
 
         //Toolbar
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar1);

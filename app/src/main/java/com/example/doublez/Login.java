@@ -44,6 +44,7 @@ public class Login extends AppCompatActivity
                 }
                 else
                 {
+                    // AlertDialog
                     AlertDialog.Builder dialog=new AlertDialog.Builder(Login.this);
                     dialog.setTitle("Username or Password not correct!");
                     dialog.setMessage("Please try again.");

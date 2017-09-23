@@ -111,7 +111,6 @@ public class Content_1 extends AppCompatActivity
                     public void onCompletion(MediaPlayer mp)
                     {
                         videoView.start();
-
                     }
                 });
             }
@@ -120,5 +119,3 @@ public class Content_1 extends AppCompatActivity
     }
 
 }
-
-
