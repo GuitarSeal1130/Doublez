@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.MediaController;
 import android.widget.VideoView;
 
 
@@ -23,11 +22,11 @@ public class Content_1 extends AppCompatActivity
         // Toolbar
 
         //Toolbar
-        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar2);
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
 
         // VdeoView
-        videoView = (VideoView) findViewById(R.id.video_view);
+        videoView = (VideoView) findViewById(R.id.video_view1);
         //videoView.setMediaController(new MediaController(this));  // 播放器控制按钮
         Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.rook1);
         videoView.setVideoURI(rawUri);

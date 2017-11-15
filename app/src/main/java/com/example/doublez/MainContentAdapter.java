@@ -54,9 +54,12 @@ public class MainContentAdapter extends RecyclerView.Adapter<MainContentAdapter.
                 switch(maincontent.getName())
                 {
                     case "Apple":
-                        Intent intent=new Intent(activity,Content_1.class);
-                        activity.startActivity(intent);
+                        Intent intent1=new Intent(activity,Content_1.class);
+                        activity.startActivity(intent1);
                         break;
+                    case "Banana":
+                        Intent intent2=new Intent(activity,Content_2.class);
+                        activity.startActivity(intent2);
                     default:
                 }
             }
@@ -75,6 +78,9 @@ public class MainContentAdapter extends RecyclerView.Adapter<MainContentAdapter.
                         Intent intent=new Intent(activity,Content_1.class);
                         activity.startActivity(intent);
                         break;
+                    case "Banana":
+                        Intent intent2=new Intent(activity,Content_2.class);
+                        activity.startActivity(intent2);
                     default:
                 }
 

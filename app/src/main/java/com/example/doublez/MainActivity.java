@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         //Toolbar
-        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar1);
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //DrawerLayout 点击按钮打开菜单
@@ -66,10 +66,11 @@ public class MainActivity extends AppCompatActivity
         });
 
         //RecyclerView
-        initMainContent();
         RecyclerView recyclerView=(RecyclerView)findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+
+        initMainContent();
         MainContentAdapter adapter=new MainContentAdapter(maincontentList,MainActivity.this);
         recyclerView.setAdapter(adapter);
 

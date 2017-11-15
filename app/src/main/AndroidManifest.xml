@@ -26,6 +26,11 @@
                   android:label="Apple">
         </activity>
 
+        <activity android:name=".Content_2"
+            android:label="La Politique">
+        </activity>
+
+
     </application>
 
 </manifest>
