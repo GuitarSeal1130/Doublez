@@ -4,17 +4,22 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.VideoView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Content_1 extends AppCompatActivity
 {
 
     private VideoView videoView;
-
+    private List<Sentence> sentenceList=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,90 +36,26 @@ public class Content_1 extends AppCompatActivity
         Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.rook1);
         videoView.setVideoURI(rawUri);
 
-        //Button
-        Button button1=(Button)findViewById(R.id.clip_1);
-        button1.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.rook1);
-                videoView.setVideoURI(rawUri);
-                videoView.start();
-                videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-                {
-                    @Override
-                    public void onCompletion(MediaPlayer mp)
-                    {
-                        videoView.start();
+        //RecyclerView
+        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_view1);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
 
-                    }
-                });
-            }
-        });
-
-        Button button2=(Button)findViewById(R.id.clip_2);
-        button2.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.rook2);
-                videoView.setVideoURI(rawUri);
-                videoView.start();
-                videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-                {
-                    @Override
-                    public void onCompletion(MediaPlayer mp)
-                    {
-                        videoView.start();
-
-                    }
-                });
-            }
-        });
-
-        Button button3=(Button)findViewById(R.id.clip_3);
-        button3.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ash);
-                videoView.setVideoURI(rawUri);
-                videoView.start();
-                videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-                {
-                    @Override
-                    public void onCompletion(MediaPlayer mp)
-                    {
-                        videoView.start();
-
-                    }
-                });
-            }
-        });
-
-        Button button4=(Button)findViewById(R.id.clip_4);
-        button4.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ying);
-                videoView.setVideoURI(rawUri);
-                videoView.start();
-                videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-                {
-                    @Override
-                    public void onCompletion(MediaPlayer mp)
-                    {
-                        videoView.start();
-                    }
-                });
-            }
-        });
+        initMainContent();
+        SentenceAdapter adapter2 = new SentenceAdapter(sentenceList,Content_1.this);
+        recyclerView.setAdapter(adapter2);
 
     }
+    private void initMainContent()
+    {
+        Sentence s1_1 = new Sentence("1_1","1. Un homme dans un café");
+        sentenceList.add(s1_1);
 
+        Sentence s1_2 = new Sentence("1_2","2. Un autre arrive");
+        sentenceList.add(s1_2);
+
+        Sentence s1_3 = new Sentence("1_3","3. Cela fait deux hommes");
+        sentenceList.add(s1_3);
+
+    }
 }

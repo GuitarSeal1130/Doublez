@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -49,12 +50,11 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
             {
                 int position=holder.getAdapterPosition();
                 Sentence sentence=sentenceList.get(position);
-                // Item的Text响应
+                // Sentence的Text响应
                 switch(sentence.getNum())
                 {
-                    case "Apple":
-                        Intent intent=new Intent(activity,Content_1.class);
-                        activity.startActivity(intent);
+                    case "2_1":
+                        Toast.makeText(activity,"2_1 Text",Toast.LENGTH_SHORT).show();
                         break;
                     default:
                 }
@@ -67,12 +67,11 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
             {
                 int position=holder.getAdapterPosition();
                 Sentence sentence=sentenceList.get(position);
-                // Item的Rec按钮响应
+                // Sentence的Rec按钮响应
                 switch(sentence.getNum())
                 {
-                    case "Apple":
-                        Intent intent=new Intent(activity,Content_1.class);
-                        activity.startActivity(intent);
+                    case "2_1":
+                        Toast.makeText(activity,"2_1 Rec",Toast.LENGTH_SHORT).show();
                         break;
                     default:
                 }

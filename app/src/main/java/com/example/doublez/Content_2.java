@@ -46,13 +46,17 @@ public class Content_2 extends AppCompatActivity {
 
     private void initMainContent()
     {
-        Sentence s2_1 = new Sentence("2_1","Un homme dans un café");
-        sentenceList.add(s2_1);
+        for(int i=0;i<3;i++)
+        {
+            Sentence s2_1 = new Sentence("2_1","1. Un homme dans un café");
+            sentenceList.add(s2_1);
 
-        Sentence s2_2 = new Sentence("2_2","Un autre arrive");
-        sentenceList.add(s2_2);
+            Sentence s2_2 = new Sentence("2_2","2. Un autre arrive");
+            sentenceList.add(s2_2);
 
-        Sentence s2_3 = new Sentence("2_3","Cela fait deux hommes");
-        sentenceList.add(s2_3);
+            Sentence s2_3 = new Sentence("2_3","3. Cela fait deux hommes");
+            sentenceList.add(s2_3);
+        }
+
     }
 }
