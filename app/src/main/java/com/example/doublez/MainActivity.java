@@ -78,35 +78,59 @@ public class MainActivity extends AppCompatActivity
 
     private void initMainContent()
     {
-        for(int i=0;i<=1;i++)
-        {
-            MainContent apple=new MainContent("1","La Polituque",R.drawable.la_politique);
-            maincontentList.add(apple);
+        MainContent a=new MainContent("1","La Polituque",R.drawable.la_politique);
+        maincontentList.add(a);
 
-            MainContent banana=new MainContent("2","Banana",R.drawable.banana_pic);
-            maincontentList.add(banana);
+        MainContent b=new MainContent("2","Banana",R.drawable.banana_pic);
+        maincontentList.add(b);
 
-            MainContent cherry=new MainContent("3","Cherry",R.drawable.cherry_pic);
-            maincontentList.add(cherry);
+        MainContent c=new MainContent("3","Cherry",R.drawable.cherry_pic);
+        maincontentList.add(c);
 
-            MainContent lemond=new MainContent("4","Lemond",R.drawable.lemond_pic);
-            maincontentList.add(lemond);
+        MainContent d=new MainContent("4","Lemond",R.drawable.lemond_pic);
+        maincontentList.add(d);
 
-            MainContent mango=new MainContent("5","Mango",R.drawable.mango_pic);
-            maincontentList.add(mango);
+        MainContent e=new MainContent("5","Mango",R.drawable.mango_pic);
+        maincontentList.add(e);
 
-            MainContent melon=new MainContent("6","Melon",R.drawable.melon_pic);
-            maincontentList.add(melon);;
+        MainContent f=new MainContent("6","Melon",R.drawable.melon_pic);
+        maincontentList.add(f);;
 
-            MainContent pear=new MainContent("7","Pear",R.drawable.pear_pic);
-            maincontentList.add(pear);
+        MainContent g=new MainContent("7","Pear",R.drawable.pear_pic);
+        maincontentList.add(g);
 
-            MainContent pineapple=new MainContent("8","Pineapple",R.drawable.pineapple_pic);
-            maincontentList.add(pineapple);
+        MainContent h=new MainContent("8","Pineapple",R.drawable.pineapple_pic);
+        maincontentList.add(h);
 
-            MainContent strawberry=new MainContent("9","Strawberry",R.drawable.strawberry_pic);
-            maincontentList.add(strawberry);
-        }
+        MainContent i=new MainContent("9","Strawberry",R.drawable.strawberry_pic);
+        maincontentList.add(i);
+
+        MainContent j=new MainContent("10","Apple",R.drawable.apple_pic);
+        maincontentList.add(j);
+
+        MainContent k=new MainContent("11","Banana",R.drawable.banana_pic);
+        maincontentList.add(k);
+
+        MainContent l=new MainContent("12","Cherry",R.drawable.cherry_pic);
+        maincontentList.add(l);
+
+        MainContent m=new MainContent("13","Lemond",R.drawable.lemond_pic);
+        maincontentList.add(m);
+
+        MainContent n=new MainContent("14","Mango",R.drawable.mango_pic);
+        maincontentList.add(n);
+
+        MainContent o=new MainContent("15","Melon",R.drawable.melon_pic);
+        maincontentList.add(o);;
+
+        MainContent p=new MainContent("16","Pear",R.drawable.pear_pic);
+        maincontentList.add(p);
+
+        MainContent q=new MainContent("17","Pineapple",R.drawable.pineapple_pic);
+        maincontentList.add(q);
+
+        MainContent r=new MainContent("18","Strawberry",R.drawable.strawberry_pic);
+        maincontentList.add(r);
     }
 
     @Override

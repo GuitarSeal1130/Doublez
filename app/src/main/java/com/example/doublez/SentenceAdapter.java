@@ -2,14 +2,20 @@ package com.example.doublez;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import java.util.List;
 
@@ -17,6 +23,7 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
 {
     private List<Sentence> sentenceList;
     private Activity activity;
+    VideoView videoview;
 
     static class ViewHolder extends RecyclerView.ViewHolder
     {
@@ -33,10 +40,11 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
         }
     }
 
-    public SentenceAdapter(List<Sentence> sentenceList,Activity activity)
+    public SentenceAdapter(List<Sentence> sentenceList,Activity activity,VideoView videoview)
     {
         this.sentenceList=sentenceList;
         this.activity=activity;
+        this.videoview=videoview;
     }
 
     public SentenceAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
@@ -50,33 +58,71 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
             {
                 int position=holder.getAdapterPosition();
                 Sentence sentence=sentenceList.get(position);
-                // Sentence的Text响应
+
+                // 按Sentence的Text响应
                 switch(sentence.getNum())
                 {
-                    case "2_1":
-                        Toast.makeText(activity,"2_1 Text",Toast.LENGTH_SHORT).show();
+                    case "1_1":
+                        Uri rawUri1 = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.la_politique_1);
+                        videoview.setVideoURI(rawUri1);
+                        videoview.start();
+                        videoview.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                        {
+                            @Override
+                            public void onCompletion(MediaPlayer mp)
+                            {
+                                videoview.start();
+                            }
+                        });
                         break;
+
                     default:
                 }
             }
         });
-        holder.sentenceRec.setOnClickListener(new View.OnClickListener()
+
+        holder.sentenceRec.setOnTouchListener(new View.OnTouchListener()
         {
             @Override
-            public void onClick(View v)
+            public boolean onTouch(View v, MotionEvent event)
             {
                 int position=holder.getAdapterPosition();
                 Sentence sentence=sentenceList.get(position);
-                // Sentence的Rec按钮响应
-                switch(sentence.getNum())
-                {
-                    case "2_1":
-                        Toast.makeText(activity,"2_1 Rec",Toast.LENGTH_SHORT).show();
-                        break;
-                    default:
-                }
 
+                if(event.getAction() == MotionEvent.ACTION_DOWN)
+                {
+                    //按下J'enregiste
+                    switch(sentence.getNum())
+                    {
+                        case "1_1":
+                            Uri rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.la_politique_1_s);
+                            videoview.setVideoURI(rawUri);
+                            videoview.start();
+                            videoview.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                            {
+                                @Override
+                                public void onCompletion(MediaPlayer mp)
+                                {}
+                            });
+                            break;
+                        default:
+                    }
+                }
+                if(event.getAction() == MotionEvent.ACTION_UP)
+                {
+                    //抬起J'enregiste
+                    switch(sentence.getNum())
+                    {
+                        case "1_1":
+                            videoview.pause();
+                            break;
+                        default:
+                    }
+                }
+                return false;
             }
+
+
         });
         return holder;
     }

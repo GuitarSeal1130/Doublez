@@ -27,12 +27,13 @@ public class Content_2 extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
 
-        /* VdeoView
+        // VdeoView
         videoView = (VideoView) findViewById(R.id.video_view2);
         //videoView.setMediaController(new MediaController(this));  // 播放器控制按钮
-        Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.rook1);
+        Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.la_politique);
         videoView.setVideoURI(rawUri);
-        */
+        videoView.start();
+
 
         //RecyclerView
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_view2);
@@ -40,7 +41,7 @@ public class Content_2 extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         initMainContent();
-        SentenceAdapter adapter2 = new SentenceAdapter(sentenceList,Content_2.this);
+        SentenceAdapter adapter2 = new SentenceAdapter(sentenceList,Content_2.this,videoView);
         recyclerView.setAdapter(adapter2);
 
     }
