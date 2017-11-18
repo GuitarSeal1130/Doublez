@@ -33,14 +33,23 @@ public class Content_1 extends AppCompatActivity
         // VdeoView
         videoView = (VideoView) findViewById(R.id.video_view1);
         //videoView.setMediaController(new MediaController(this));  // 播放器控制按钮
-        Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.rook1);
+        Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.test_la_politique);
         videoView.setVideoURI(rawUri);
+        videoView.start();
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+        {
+            @Override
+            public void onCompletion(MediaPlayer mp)
+            {
+                videoView.start();
+
+            }
+        });
 
         //RecyclerView
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_view1);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
         initMainContent();
         SentenceAdapter adapter2 = new SentenceAdapter(sentenceList,Content_1.this);
         recyclerView.setAdapter(adapter2);
@@ -48,14 +57,26 @@ public class Content_1 extends AppCompatActivity
     }
     private void initMainContent()
     {
-        Sentence s1_1 = new Sentence("1_1","1. Un homme dans un café");
+        Sentence s1_1 = new Sentence("1_1","1. Un homme attend dans un café,un autre arrive, cela fait deux hommes. ");
         sentenceList.add(s1_1);
 
-        Sentence s1_2 = new Sentence("1_2","2. Un autre arrive");
+        Sentence s1_2 = new Sentence("1_2","2. Salut, mec. ");
         sentenceList.add(s1_2);
 
-        Sentence s1_3 = new Sentence("1_3","3. Cela fait deux hommes");
+        Sentence s1_3 = new Sentence("1_3","3. Une serveuse s'approche des deux hommes. ");
         sentenceList.add(s1_3);
+
+        Sentence s1_4 = new Sentence("1_4","4. Bojour. ");
+        sentenceList.add(s1_3);
+
+        Sentence s1_5 = new Sentence("1_5","5. Bonjour, je vais prendre un déca ");
+        sentenceList.add(s1_4);
+
+        Sentence s1_6 = new Sentence("1_6","6. Euh deux, s'il vous plaît. ");
+        sentenceList.add(s1_5);
+
+        Sentence s1_7 = new Sentence("1_7","7. Ils commandent de façon directive à la serveuse. ");
+        sentenceList.add(s1_7);
 
     }
 }

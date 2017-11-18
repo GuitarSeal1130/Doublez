@@ -80,31 +80,31 @@ public class MainActivity extends AppCompatActivity
     {
         for(int i=0;i<=1;i++)
         {
-            MainContent apple=new MainContent("Apple",R.drawable.apple_pic);
+            MainContent apple=new MainContent("1","La Polituque",R.drawable.la_politique);
             maincontentList.add(apple);
 
-            MainContent banana=new MainContent("Banana",R.drawable.banana_pic);
+            MainContent banana=new MainContent("2","Banana",R.drawable.banana_pic);
             maincontentList.add(banana);
 
-            MainContent cherry=new MainContent("Cherry",R.drawable.cherry_pic);
+            MainContent cherry=new MainContent("3","Cherry",R.drawable.cherry_pic);
             maincontentList.add(cherry);
 
-            MainContent lemond=new MainContent("Lemond",R.drawable.lemond_pic);
+            MainContent lemond=new MainContent("4","Lemond",R.drawable.lemond_pic);
             maincontentList.add(lemond);
 
-            MainContent mango=new MainContent("Mango",R.drawable.mango_pic);
+            MainContent mango=new MainContent("5","Mango",R.drawable.mango_pic);
             maincontentList.add(mango);
 
-            MainContent melon=new MainContent("Melon",R.drawable.melon_pic);
+            MainContent melon=new MainContent("6","Melon",R.drawable.melon_pic);
             maincontentList.add(melon);;
 
-            MainContent pear=new MainContent("Pear",R.drawable.pear_pic);
+            MainContent pear=new MainContent("7","Pear",R.drawable.pear_pic);
             maincontentList.add(pear);
 
-            MainContent pineapple=new MainContent("Pineapple",R.drawable.pineapple_pic);
+            MainContent pineapple=new MainContent("8","Pineapple",R.drawable.pineapple_pic);
             maincontentList.add(pineapple);
 
-            MainContent strawberry=new MainContent("Strawberry",R.drawable.strawberry_pic);
+            MainContent strawberry=new MainContent("9","Strawberry",R.drawable.strawberry_pic);
             maincontentList.add(strawberry);
         }
     }

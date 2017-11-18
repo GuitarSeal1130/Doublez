@@ -23,11 +23,11 @@
 
 
         <activity android:name=".Content_1"
-                  android:label="Apple">
+                  android:label="La Politique">
         </activity>
 
         <activity android:name=".Content_2"
-            android:label="La Politique">
+            android:label="Banana">
         </activity>
 
 

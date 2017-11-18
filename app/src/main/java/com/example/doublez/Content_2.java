@@ -27,11 +27,12 @@ public class Content_2 extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
 
-        // VdeoView
+        /* VdeoView
         videoView = (VideoView) findViewById(R.id.video_view2);
         //videoView.setMediaController(new MediaController(this));  // 播放器控制按钮
         Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.rook1);
         videoView.setVideoURI(rawUri);
+        */
 
         //RecyclerView
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_view2);

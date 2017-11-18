@@ -51,13 +51,13 @@ public class MainContentAdapter extends RecyclerView.Adapter<MainContentAdapter.
                 int position=holder.getAdapterPosition();
                 MainContent maincontent=mainContentList.get(position);
                 // Item的Text响应
-                switch(maincontent.getName())
+                switch(maincontent.getNum())
                 {
-                    case "Apple":
+                    case "1":
                         Intent intent1=new Intent(activity,Content_1.class);
                         activity.startActivity(intent1);
                         break;
-                    case "Banana":
+                    case "2":
                         Intent intent2=new Intent(activity,Content_2.class);
                         activity.startActivity(intent2);
                     default:
@@ -72,13 +72,13 @@ public class MainContentAdapter extends RecyclerView.Adapter<MainContentAdapter.
                 int position=holder.getAdapterPosition();
                 MainContent maincontent=mainContentList.get(position);
                 // Item的Image响应
-                switch(maincontent.getName())
+                switch(maincontent.getNum())
                 {
-                    case "Apple":
+                    case "1":
                         Intent intent=new Intent(activity,Content_1.class);
                         activity.startActivity(intent);
                         break;
-                    case "Banana":
+                    case "2":
                         Intent intent2=new Intent(activity,Content_2.class);
                         activity.startActivity(intent2);
                     default:
