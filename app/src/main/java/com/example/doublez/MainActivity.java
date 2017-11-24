@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity
 {
 
     private List<MainContent> maincontentList=new ArrayList<>();
+    private int backpressed=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -134,9 +135,25 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    public void onStart()
+    {
+        super.onStart();
+        backpressed=0;
+    }
+
+    @Override
     public void onBackPressed()
     {
-        finish();
+        if(backpressed==0)
+        {
+            Toast.makeText(MainActivity.this,"再按一次退出Doublez!", Toast.LENGTH_SHORT).show();
+            backpressed=1;
+        }
+        else
+        {
+            backpressed=0;
+            finish();
+        }
     }
 
 }
