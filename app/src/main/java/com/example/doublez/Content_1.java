@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.MediaController;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import java.util.ArrayList;
@@ -22,9 +23,9 @@ public class Content_1 extends AppCompatActivity
 {
 
     private VideoView videoView;
-    private int status=1;
     private List<Sentence> sentenceList=new ArrayList<>();
-    @SuppressLint("ClickableViewAccessibility")
+    private SentenceAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,13 +60,14 @@ public class Content_1 extends AppCompatActivity
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         initMainContent();
-        SentenceAdapter adapter2 = new SentenceAdapter(sentenceList,Content_1.this,videoView);
-        recyclerView.setAdapter(adapter2);
+        adapter = new SentenceAdapter(sentenceList,Content_1.this,videoView);
+        recyclerView.setAdapter(adapter);
 
     }
+
     private void initMainContent()
     {
-        Sentence s1_1 = new Sentence("1_1","1. Un homme attend dans un café,un autre arrive, cela fait deux hommes. ");
+        Sentence s1_1 = new Sentence("1_1","1. Un homme attend dans un café, un autre arrive, cela fait deux hommes. ");
         sentenceList.add(s1_1);
 
         Sentence s1_2 = new Sentence("1_2","2. Salut, mec. ");
@@ -86,5 +88,31 @@ public class Content_1 extends AppCompatActivity
         Sentence s1_7 = new Sentence("1_7","7. Ils commandent de façon directive à la serveuse. ");
         sentenceList.add(s1_7);
 
+        Sentence s1_8 = new Sentence("1_8","8. ");
+        sentenceList.add(s1_8);
+
+        Sentence s1_9 = new Sentence("1_9","9. ");
+        sentenceList.add(s1_9);
+
+        Sentence s1_10 = new Sentence("1_10","10. ");
+        sentenceList.add(s1_10);
+
+        Sentence s1_11 = new Sentence("1_11","11. ");
+        sentenceList.add(s1_11);
+
+        Sentence s1_12 = new Sentence("1_12","12. ");
+        sentenceList.add(s1_12);
+
+        Sentence s1_13 = new Sentence("1_13","13. ");
+        sentenceList.add(s1_13);
+
     }
+
+    @Override
+    public void onBackPressed()
+    {
+        adapter.destroy();
+        finish();
+    }
+
 }

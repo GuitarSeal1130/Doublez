@@ -17,6 +17,7 @@ public class Content_2 extends AppCompatActivity {
 
     private VideoView videoView;
     private List<Sentence> sentenceList=new ArrayList<>();
+    private SentenceAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +42,8 @@ public class Content_2 extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         initMainContent();
-        SentenceAdapter adapter2 = new SentenceAdapter(sentenceList,Content_2.this,videoView);
-        recyclerView.setAdapter(adapter2);
+        adapter = new SentenceAdapter(sentenceList,Content_2.this,videoView);
+        recyclerView.setAdapter(adapter);
 
     }
 
@@ -59,6 +60,12 @@ public class Content_2 extends AppCompatActivity {
             Sentence s2_3 = new Sentence("2_3","3. Cela fait deux hommes");
             sentenceList.add(s2_3);
         }
+    }
 
+    @Override
+    public void onBackPressed()
+    {
+        adapter.destroy();
+        finish();
     }
 }

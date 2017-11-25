@@ -5,7 +5,6 @@ public class Sentence
 {
     private String num;
     private String text;
-    private int Id;
 
     public Sentence(String num,String text)
     {
