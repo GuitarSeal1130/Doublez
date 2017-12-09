@@ -10,7 +10,7 @@
         android:id="@+id/icon_image"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:src="@drawable/ic_launcher"
+        android:src="@drawable/apple_pic"
         android:layout_centerInParent="true" />
 
     <TextView
@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="email@net.com"
+        android:text="admin@net.com"
         android:textColor="#FFF"
         android:textSize="14sp" />
 
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/mail"
-        android:text="用户名"
+        android:text="Admin"
         android:textColor="#FFF"
         android:textSize="14sp" />
 

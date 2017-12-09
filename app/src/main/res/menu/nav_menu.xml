@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/main_background1">
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_1"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/apple_pic"
             android:title="排行榜" />
         <item
             android:id="@+id/nav_2"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/banana_pic"
             android:title="最近配音" />
         <item
             android:id="@+id/nav_3"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/cherry_pic"
             android:title="登出" />
     </group>
 

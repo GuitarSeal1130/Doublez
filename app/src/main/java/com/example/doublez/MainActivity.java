@@ -82,22 +82,22 @@ public class MainActivity extends AppCompatActivity
         MainContent a=new MainContent("1","La Polituque",R.drawable.la_politique);
         maincontentList.add(a);
 
-        MainContent b=new MainContent("2","Banana",R.drawable.banana_pic);
+        MainContent b=new MainContent("2","La Gloire de mon Père 1",R.drawable.la_gloire_de_mon_pere);
         maincontentList.add(b);
 
-        MainContent c=new MainContent("3","Cherry",R.drawable.cherry_pic);
+        MainContent c=new MainContent("3","La Gloire de mon Père 2",R.drawable.la_gloire_de_mon_pere);
         maincontentList.add(c);
 
-        MainContent d=new MainContent("4","Lemond",R.drawable.lemond_pic);
+        MainContent d=new MainContent("4","Le Château de ma Mère",R.drawable.le_chateau_de_ma_mere);
         maincontentList.add(d);
 
-        MainContent e=new MainContent("5","Mango",R.drawable.mango_pic);
+        MainContent e=new MainContent("5","Le Petit Nicolas",R.drawable.le_petit_nicolas);
         maincontentList.add(e);
 
-        MainContent f=new MainContent("6","Melon",R.drawable.melon_pic);
+        MainContent f=new MainContent("6","La belle et la Bête",R.drawable.la_belle_et_la_bete);
         maincontentList.add(f);;
 
-        MainContent g=new MainContent("7","Pear",R.drawable.pear_pic);
+        MainContent g=new MainContent("7","Fanfan",R.drawable.fanfan);
         maincontentList.add(g);
 
         MainContent h=new MainContent("8","Pineapple",R.drawable.pineapple_pic);

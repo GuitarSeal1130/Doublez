@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +17,7 @@ import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,9 +25,14 @@ import java.util.List;
 public class Content_1 extends AppCompatActivity
 {
 
-    private VideoView videoView;
+    private VideoView videoView=null;
     private List<Sentence> sentenceList=new ArrayList<>();
     private SentenceAdapter adapter;
+    private int count;
+    private MediaPlayer mediaPlayer;
+    private Uri rawUri;
+    private File recordFile;
+    private Uri uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +44,11 @@ public class Content_1 extends AppCompatActivity
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
 
+
         // VdeoView
         videoView = (VideoView) findViewById(R.id.video_view1);
         //videoView.setMediaController(new MediaController(this));  // 播放器控制按钮
-        Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.la_politique);
+        Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_0);
         videoView.setVideoURI(rawUri);
         videoView.start();
         videoView.setOnTouchListener(new View.OnTouchListener()
@@ -47,7 +56,7 @@ public class Content_1 extends AppCompatActivity
             @Override
             public boolean onTouch(View v, MotionEvent event)
             {
-                Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.la_politique);
+                Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_0);
                 videoView.setVideoURI(rawUri);
                 videoView.start();
                 return false;
@@ -63,6 +72,132 @@ public class Content_1 extends AppCompatActivity
         adapter = new SentenceAdapter(sentenceList,Content_1.this,videoView);
         recyclerView.setAdapter(adapter);
 
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.content_toolbar,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch(item.getItemId())
+        {
+            //Doublez按钮监听函数
+            case R.id.play:
+                count=1;
+                //停止播放录音
+                if(mediaPlayer!=null)
+                    mediaPlayer.stop();
+                //播放视频
+                rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_1s);
+                videoView.setVideoURI(rawUri);
+                videoView.start();
+                //播放录音
+                recordFile=new File("/mnt/sdcard", "1_1.aac");  // 指向音频文件
+                uri = Uri.fromFile(recordFile);
+                mediaPlayer = MediaPlayer.create(Content_1.this, uri);
+                mediaPlayer.start();
+                count++;
+
+                videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                {
+                    //@Override
+                    public void onCompletion(MediaPlayer mp)
+                    {
+                        //停止播放录音
+                        if(mediaPlayer!=null)
+                            mediaPlayer.stop();
+                        switch(count)
+                        {
+                            case 2:
+                                //播放视频
+                                rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_2s);
+                                videoView.setVideoURI(rawUri);
+                                videoView.start();
+                                //播放录音
+                                mediaPlayer.stop();
+                                recordFile=new File("/mnt/sdcard", "1_2.aac");  // 指向音频文件
+                                uri = Uri.fromFile(recordFile);
+                                mediaPlayer = MediaPlayer.create(Content_1.this, uri);
+                                mediaPlayer.start();
+                                count++;
+                                break;
+                            case 3:
+                                //播放视频
+                                rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_3s);
+                                videoView.setVideoURI(rawUri);
+                                videoView.start();
+                                //播放录音
+                                recordFile=new File("/mnt/sdcard", "1_3.aac");  // 指向音频文件
+                                uri = Uri.fromFile(recordFile);
+                                mediaPlayer = MediaPlayer.create(Content_1.this, uri);
+                                mediaPlayer.start();
+                                count++;
+                                break;
+                            case 4:
+                                //播放视频
+                                rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_4s);
+                                videoView.setVideoURI(rawUri);
+                                videoView.start();
+                                //播放录音
+                                recordFile=new File("/mnt/sdcard", "1_4.aac");  // 指向音频文件
+                                uri = Uri.fromFile(recordFile);
+                                mediaPlayer = MediaPlayer.create(Content_1.this, uri);
+                                mediaPlayer.start();
+                                count++;
+                                break;
+                            case 5:
+                                //播放视频
+                                rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_5s);
+                                videoView.setVideoURI(rawUri);
+                                videoView.start();
+                                //播放录音
+                                recordFile=new File("/mnt/sdcard", "1_5.aac");  // 指向音频文件
+                                uri = Uri.fromFile(recordFile);
+                                mediaPlayer = MediaPlayer.create(Content_1.this, uri);
+                                mediaPlayer.start();
+                                count++;
+                                break;
+                            case 6:
+                                //播放视频
+                                rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_6s);
+                                videoView.setVideoURI(rawUri);
+                                videoView.start();
+                                //播放录音
+                                recordFile=new File("/mnt/sdcard", "1_6.aac");  // 指向音频文件
+                                uri = Uri.fromFile(recordFile);
+                                mediaPlayer = MediaPlayer.create(Content_1.this, uri);
+                                mediaPlayer.start();
+                                count++;
+                                break;
+                            case 7:
+                                //播放视频
+                                rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_7s);
+                                videoView.setVideoURI(rawUri);
+                                videoView.start();
+                                //播放录音
+                                recordFile=new File("/mnt/sdcard", "1_7.aac");  // 指向音频文件
+                                uri = Uri.fromFile(recordFile);
+                                mediaPlayer = MediaPlayer.create(Content_1.this, uri);
+                                mediaPlayer.start();
+                                count++;
+                                break;
+                            case 8:
+                                count=1;
+                                mediaPlayer.reset();
+                                break;
+                            default:
+
+                        }
+                    }
+                });
+                break;
+            default:
+        }
+        return true;
     }
 
     private void initMainContent()
@@ -87,25 +222,6 @@ public class Content_1 extends AppCompatActivity
 
         Sentence s1_7 = new Sentence("1_7","7. Ils commandent de façon directive à la serveuse. ");
         sentenceList.add(s1_7);
-
-        Sentence s1_8 = new Sentence("1_8","8. ");
-        sentenceList.add(s1_8);
-
-        Sentence s1_9 = new Sentence("1_9","9. ");
-        sentenceList.add(s1_9);
-
-        Sentence s1_10 = new Sentence("1_10","10. ");
-        sentenceList.add(s1_10);
-
-        Sentence s1_11 = new Sentence("1_11","11. ");
-        sentenceList.add(s1_11);
-
-        Sentence s1_12 = new Sentence("1_12","12. ");
-        sentenceList.add(s1_12);
-
-        Sentence s1_13 = new Sentence("1_13","13. ");
-        sentenceList.add(s1_13);
-
     }
 
     @Override
