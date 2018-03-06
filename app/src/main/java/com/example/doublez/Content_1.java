@@ -48,9 +48,10 @@ public class Content_1 extends AppCompatActivity
         // VdeoView
         videoView = (VideoView) findViewById(R.id.video_view1);
         //videoView.setMediaController(new MediaController(this));  // 播放器控制按钮
-        Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_0);
+        //Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_0);
+        rawUri = Uri.parse("http://t19p169001.imwork.net/doublez/1.mp4");
         videoView.setVideoURI(rawUri);
-        videoView.start();
+        //videoView.start();
         videoView.setOnTouchListener(new View.OnTouchListener()
         {
             @Override
