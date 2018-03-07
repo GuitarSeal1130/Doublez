@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -34,16 +35,16 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
     {
         View sentenceView;
         TextView sentenceText;
-        Button sentenceRec;
-        Button sentencePlay;
+        ImageView sentenceRec;
+        ImageView sentencePlay;
 
         public ViewHolder (View view)
         {
             super(view);
             sentenceView=view;
             sentenceText=(TextView)view.findViewById(R.id.sentence_text);
-            sentenceRec=(Button)view.findViewById(R.id.sentence_rec);
-            sentencePlay=(Button)view.findViewById(R.id.sentence_play);
+            sentenceRec=(ImageView)view.findViewById(R.id.sentence_rec);
+            sentencePlay=(ImageView)view.findViewById(R.id.sentence_play);
         }
     }
 
@@ -59,22 +60,33 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
     {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.sentence_item,parent,false);
         final SentenceAdapter.ViewHolder holder=new SentenceAdapter.ViewHolder(view);
-        holder.sentenceView.setOnClickListener(new View.OnClickListener()
+        holder.sentenceText.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                int position=holder.getAdapterPosition();
-                Sentence sentence=sentenceList.get(position);
                 //停止播放录音
                 if(mediaPlayer!=null)
+                {
                     mediaPlayer.stop();
-                // 按Sentence的Text响应
+                }
+                //停止录音
+                if(mediaRecorder!=null)
+                {
+                    mediaRecorder.stop();
+                    mediaRecorder.release();
+                    mediaRecorder = null;
+                }
+
+                int position=holder.getAdapterPosition();
+                Sentence sentence=sentenceList.get(position);
+                // 各个Text的响应
                 switch(sentence.getNum())
                 {
                     case "1_1":
                         //播放视频
-                        rawUri= Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_1);
+                        //rawUri= Uri.parse("http://t19p169001.imwork.net/doublez/a_1.mp4");
+                        rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_1);
                         videoView.setVideoURI(rawUri);
                         videoView.start();
                         break;
@@ -192,9 +204,20 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
                 //按下J'enregiste
                 if(event.getAction() == MotionEvent.ACTION_DOWN)
                 {
+                    //颜色反转
+                    holder.sentenceRec.setImageResource(R.mipmap.record_r);
                     //停止播放录音
                     if(mediaPlayer!=null)
+                    {
                         mediaPlayer.stop();
+                    }
+                    //停止录音
+                    if(mediaRecorder!=null)
+                    {
+                        mediaRecorder.stop();
+                        mediaRecorder.release();
+                        mediaRecorder = null;
+                    }
                     switch(sentence.getNum())
                     {
                         case "1_1":
@@ -218,6 +241,7 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
                             }
                             mediaRecorder.start();
                             //播放视频
+                            //rawUri = Uri.parse("http://t19p169001.imwork.net/doublez/a_1s.mp4");
                             rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_1s);
                             videoView.setVideoURI(rawUri);
                             videoView.start();
@@ -597,17 +621,25 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
                     }
                 }
 
-                //抬起J'enregiste
+                //抬起录音按钮
                 if(event.getAction() == MotionEvent.ACTION_UP)
                 {
+                    holder.sentenceRec.setImageResource(R.mipmap.record);
+                    videoView.pause();
+                    //停止播放录音
+                    if(mediaPlayer!=null)
+                    {
+                        mediaPlayer.stop();
+                    }
+                    //停止录音
                     if(mediaRecorder!=null)
                     {
-                        //结束录音
                         mediaRecorder.stop();
+                        mediaRecorder.release();
                         mediaRecorder = null;
                     }
                 }
-                return false;
+                return true;
             }
 
 
@@ -622,7 +654,17 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
                 Sentence sentence=sentenceList.get(position);
                 //停止播放录音
                 if(mediaPlayer!=null)
+                {
                     mediaPlayer.stop();
+                }
+                //停止录音
+                if(mediaRecorder!=null)
+                {
+                    mediaRecorder.stop();
+                    mediaRecorder.release();
+                    mediaRecorder = null;
+                }
+
                 switch(sentence.getNum())
                 {
                     case "1_1":
@@ -632,6 +674,7 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
                         mediaPlayer = MediaPlayer.create(activity, uri);
                         mediaPlayer.start();
                         //播放视频
+                        //rawUri = Uri.parse("http://t19p169001.imwork.net/doublez/a_1s.mp4");
                         rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_1s);
                         videoView.setVideoURI(rawUri);
                         videoView.start();

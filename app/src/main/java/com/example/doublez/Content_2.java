@@ -2,6 +2,7 @@ package com.example.doublez;
 
 import android.annotation.SuppressLint;
 import android.media.MediaPlayer;
+import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +35,7 @@ public class Content_2 extends AppCompatActivity
     private File recordFile;
     private MediaPlayer mediaPlayer=null;
     private Uri uri;
+    private MediaRecorder mediaRecorder=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +94,16 @@ public class Content_2 extends AppCompatActivity
                 count=1;
                 //停止播放录音
                 if(mediaPlayer!=null)
+                {
                     mediaPlayer.stop();
+                }
+                //停止录音
+                if(mediaRecorder!=null)
+                {
+                    mediaRecorder.stop();
+                    mediaRecorder.release();
+                    mediaRecorder = null;
+                }
                 //播放视频
                 rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.b_1s);
                 videoView.setVideoURI(rawUri);

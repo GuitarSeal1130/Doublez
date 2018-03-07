@@ -2,6 +2,7 @@ package com.example.doublez;
 
 import android.annotation.SuppressLint;
 import android.media.MediaPlayer;
+import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -33,12 +34,12 @@ public class Content_1 extends AppCompatActivity
     private Uri rawUri;
     private File recordFile;
     private Uri uri;
+    private MediaRecorder mediaRecorder=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_1);
-        // Toolbar
 
         //Toolbar
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar1);
@@ -48,15 +49,16 @@ public class Content_1 extends AppCompatActivity
         // VdeoView
         videoView = (VideoView) findViewById(R.id.video_view1);
         //videoView.setMediaController(new MediaController(this));  // 播放器控制按钮
-        //Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_0);
-        rawUri = Uri.parse("http://t19p169001.imwork.net/doublez/1.mp4");
+        Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_0);
+        //rawUri = Uri.parse("http://t19p169001.imwork.net/doublez/a_0.mp4");
         videoView.setVideoURI(rawUri);
-        //videoView.start();
+        videoView.start();
         videoView.setOnTouchListener(new View.OnTouchListener()
         {
             @Override
             public boolean onTouch(View v, MotionEvent event)
             {
+                //Uri rawUri = Uri.parse("http://t19p169001.imwork.net/doublez/a_0.mp4");
                 Uri rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_0);
                 videoView.setVideoURI(rawUri);
                 videoView.start();
@@ -91,7 +93,17 @@ public class Content_1 extends AppCompatActivity
                 count=1;
                 //停止播放录音
                 if(mediaPlayer!=null)
+                {
                     mediaPlayer.stop();
+                }
+                //停止录音
+                if(mediaRecorder!=null)
+                {
+                    mediaRecorder.stop();
+                    mediaRecorder.release();
+                    mediaRecorder = null;
+                }
+
                 //播放视频
                 rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_1s);
                 videoView.setVideoURI(rawUri);
