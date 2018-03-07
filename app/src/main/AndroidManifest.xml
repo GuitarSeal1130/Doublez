@@ -30,6 +30,10 @@
             android:label="La Gloire de mon Père 1">
         </activity>
 
+        <activity android:name=".Recent"
+            android:label="Doublez">
+        </activity>
+
     </application>
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />

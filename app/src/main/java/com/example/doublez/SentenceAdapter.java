@@ -1,6 +1,5 @@
 package com.example.doublez;
 
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.media.MediaPlayer;
@@ -11,11 +10,10 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -670,298 +668,363 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
                     case "1_1":
                         //播放录音
                         recordFile=new File("/mnt/sdcard", "1_1.aac");  // 指向音频文件
-                        uri = Uri.fromFile(recordFile);
-                        mediaPlayer = MediaPlayer.create(activity, uri);
-                        mediaPlayer.start();
-                        //播放视频
-                        //rawUri = Uri.parse("http://t19p169001.imwork.net/doublez/a_1s.mp4");
-                        rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_1s);
-                        videoView.setVideoURI(rawUri);
-                        videoView.start();
-                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                        if(!recordFile.exists())
                         {
-                            @Override
-                            public void onCompletion(MediaPlayer mp)
-                            {
-                                mediaPlayer.stop();
-                            }
-                        });
+                            Toast.makeText(activity,"录音不存在~",Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            uri = Uri.fromFile(recordFile);
+                            mediaPlayer = MediaPlayer.create(activity, uri);
+                            mediaPlayer.start();
+                            //播放视频
+                            //rawUri = Uri.parse("http://t19p169001.imwork.net/doublez/a_1s.mp4");
+                            rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_1s);
+                            videoView.setVideoURI(rawUri);
+                            videoView.start();
+                            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    mediaPlayer.stop();
+                                }
+                            });
+                        }
                         break;
 
                     case "1_2":
                         //播放录音
                         recordFile=new File("/mnt/sdcard", "1_2.aac");  // 指向音频文件
-                        uri = Uri.fromFile(recordFile);
-                        mediaPlayer = MediaPlayer.create(activity, uri);
-                        mediaPlayer.start();
-                        //播放视频
-                        rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_2s);
-                        videoView.setVideoURI(rawUri);
-                        videoView.start();
-                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                            @Override
-                            public void onCompletion(MediaPlayer mp) {
-                                mediaPlayer.stop();
-                            }
-                        });
+                        if(!recordFile.exists())
+                        {
+                            Toast.makeText(activity,"录音不存在~",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            uri = Uri.fromFile(recordFile);
+                            mediaPlayer = MediaPlayer.create(activity, uri);
+                            mediaPlayer.start();
+                            //播放视频
+                            rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_2s);
+                            videoView.setVideoURI(rawUri);
+                            videoView.start();
+                            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    mediaPlayer.stop();
+                                }
+                            });
+                        }
                         break;
 
                     case "1_3":
                         //播放录音
                         recordFile=new File("/mnt/sdcard", "1_3.aac");  // 指向音频文件
-                        uri = Uri.fromFile(recordFile);
-                        mediaPlayer = MediaPlayer.create(activity, uri);
-                        mediaPlayer.start();
-                        //播放视频
-                        rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_3s);
-                        videoView.setVideoURI(rawUri);
-                        videoView.start();
-                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                        if(!recordFile.exists())
                         {
-                            @Override
-                            public void onCompletion(MediaPlayer mp)
-                            {
-                                mediaPlayer.stop();
-                            }
-                        });
+                            Toast.makeText(activity,"录音不存在~",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            uri = Uri.fromFile(recordFile);
+                            mediaPlayer = MediaPlayer.create(activity, uri);
+                            mediaPlayer.start();
+                            //播放视频
+                            rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_3s);
+                            videoView.setVideoURI(rawUri);
+                            videoView.start();
+                            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    mediaPlayer.stop();
+                                }
+                            });
+                        }
                         break;
 
                     case "1_4":
                         //播放录音
                         recordFile=new File("/mnt/sdcard", "1_4.aac");  // 指向音频文件
-                        uri = Uri.fromFile(recordFile);
-                        mediaPlayer = MediaPlayer.create(activity, uri);
-                        mediaPlayer.start();
-                        //播放视频
-                        rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_4s);
-                        videoView.setVideoURI(rawUri);
-                        videoView.start();
-                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                            @Override
-                            public void onCompletion(MediaPlayer mp)
-                            {
-                                mediaPlayer.stop();
-                            }
-                        });
+                        if(!recordFile.exists())
+                        {
+                            Toast.makeText(activity,"录音不存在~",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            uri = Uri.fromFile(recordFile);
+                            mediaPlayer = MediaPlayer.create(activity, uri);
+                            mediaPlayer.start();
+                            //播放视频
+                            rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_4s);
+                            videoView.setVideoURI(rawUri);
+                            videoView.start();
+                            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    mediaPlayer.stop();
+                                }
+                            });
+                        }
                         break;
 
                     case "1_5":
                         //播放录音
                         recordFile=new File("/mnt/sdcard", "1_5.aac");  // 指向音频文件
-                        uri = Uri.fromFile(recordFile);
-                        mediaPlayer = MediaPlayer.create(activity, uri);
-                        mediaPlayer.start();
-                        //播放视频
-                        rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_5s);
-                        videoView.setVideoURI(rawUri);
-                        videoView.start();
-                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                        if(!recordFile.exists())
                         {
-                            @Override
-                            public void onCompletion(MediaPlayer mp)
-                            {
-                                mediaPlayer.stop();
-                            }
-                        });
+                            Toast.makeText(activity,"录音不存在~",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            uri = Uri.fromFile(recordFile);
+                            mediaPlayer = MediaPlayer.create(activity, uri);
+                            mediaPlayer.start();
+                            //播放视频
+                            rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_5s);
+                            videoView.setVideoURI(rawUri);
+                            videoView.start();
+                            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    mediaPlayer.stop();
+                                }
+                            });
+                        }
                         break;
 
                     case "1_6":
                         //播放录音
                         recordFile=new File("/mnt/sdcard", "1_6.aac");  // 指向音频文件
-                        uri = Uri.fromFile(recordFile);
-                        mediaPlayer = MediaPlayer.create(activity, uri);
-                        mediaPlayer.start();
-                        //播放视频
-                        rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_6s);
-                        videoView.setVideoURI(rawUri);
-                        videoView.start();
-                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                        if(!recordFile.exists())
                         {
-                            @Override
-                            public void onCompletion(MediaPlayer mp)
-                            {
-                                mediaPlayer.stop();
-                            }
-                        });
-
+                            Toast.makeText(activity,"录音不存在~",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            uri = Uri.fromFile(recordFile);
+                            mediaPlayer = MediaPlayer.create(activity, uri);
+                            mediaPlayer.start();
+                            //播放视频
+                            rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_6s);
+                            videoView.setVideoURI(rawUri);
+                            videoView.start();
+                            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    mediaPlayer.stop();
+                                }
+                            });
+                        }
                         break;
 
                     case "1_7":
                         //播放录音
                         recordFile=new File("/mnt/sdcard", "1_7.aac");  // 指向音频文件
-                        uri = Uri.fromFile(recordFile);
-                        mediaPlayer = MediaPlayer.create(activity, uri);
-                        mediaPlayer.start();
-                        //播放视频
-                        rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_7s);
-                        videoView.setVideoURI(rawUri);
-                        videoView.start();
-                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                        if(!recordFile.exists())
                         {
-                            @Override
-                            public void onCompletion(MediaPlayer mp)
-                            {
-                                mediaPlayer.stop();
-                            }
-                        });
+                            Toast.makeText(activity,"录音不存在~",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            uri = Uri.fromFile(recordFile);
+                            mediaPlayer = MediaPlayer.create(activity, uri);
+                            mediaPlayer.start();
+                            //播放视频
+                            rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.a_7s);
+                            videoView.setVideoURI(rawUri);
+                            videoView.start();
+                            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    mediaPlayer.stop();
+                                }
+                            });
+                        }
                         break;
 
                     case "2_1":
                         //播放录音
                         recordFile=new File("/mnt/sdcard", "2_1.aac");  // 指向音频文件
-                        uri = Uri.fromFile(recordFile);
-                        mediaPlayer = MediaPlayer.create(activity, uri);
-                        mediaPlayer.start();
-                        //播放视频
-                        rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.b_1s);
-                        videoView.setVideoURI(rawUri);
-                        videoView.start();
-                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                        if(!recordFile.exists())
                         {
-                            @Override
-                            public void onCompletion(MediaPlayer mp)
-                            {
-                                mediaPlayer.stop();
-                            }
-                        });
+                            Toast.makeText(activity,"录音不存在~",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            uri = Uri.fromFile(recordFile);
+                            mediaPlayer = MediaPlayer.create(activity, uri);
+                            mediaPlayer.start();
+                            //播放视频
+                            rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.b_1s);
+                            videoView.setVideoURI(rawUri);
+                            videoView.start();
+                            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    mediaPlayer.stop();
+                                }
+                            });
+                        }
                         break;
 
                     case "2_2":
                         //播放录音
                         recordFile=new File("/mnt/sdcard", "2_2.aac");  // 指向音频文件
-                        uri = Uri.fromFile(recordFile);
-                        mediaPlayer = MediaPlayer.create(activity, uri);
-                        mediaPlayer.start();
-                        //播放视频
-                        rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.b_2s);
-                        videoView.setVideoURI(rawUri);
-                        videoView.start();
-                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                            @Override
-                            public void onCompletion(MediaPlayer mp) {
-                                mediaPlayer.stop();
-                            }
-                        });
+                        if(!recordFile.exists())
+                        {
+                            Toast.makeText(activity,"录音不存在~",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            uri = Uri.fromFile(recordFile);
+                            mediaPlayer = MediaPlayer.create(activity, uri);
+                            mediaPlayer.start();
+                            //播放视频
+                            rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.b_2s);
+                            videoView.setVideoURI(rawUri);
+                            videoView.start();
+                            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    mediaPlayer.stop();
+                                }
+                            });
+                        }
                         break;
 
                     case "2_3":
                         //播放录音
                         recordFile=new File("/mnt/sdcard", "2_3.aac");  // 指向音频文件
-                        uri = Uri.fromFile(recordFile);
-                        mediaPlayer = MediaPlayer.create(activity, uri);
-                        mediaPlayer.start();
-                        //播放视频
-                        rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.b_3s);
-                        videoView.setVideoURI(rawUri);
-                        videoView.start();
-                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                        if(!recordFile.exists())
                         {
-                            @Override
-                            public void onCompletion(MediaPlayer mp)
-                            {
-                                mediaPlayer.stop();
-                            }
-                        });
+                            Toast.makeText(activity,"录音不存在~",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            uri = Uri.fromFile(recordFile);
+                            mediaPlayer = MediaPlayer.create(activity, uri);
+                            mediaPlayer.start();
+                            //播放视频
+                            rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.b_3s);
+                            videoView.setVideoURI(rawUri);
+                            videoView.start();
+                            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    mediaPlayer.stop();
+                                }
+                            });
+                        }
                         break;
 
                     case "2_4":
                         //播放录音
                         recordFile=new File("/mnt/sdcard", "2_4.aac");  // 指向音频文件
-                        uri = Uri.fromFile(recordFile);
-                        mediaPlayer = MediaPlayer.create(activity, uri);
-                        mediaPlayer.start();
-                        //播放视频
-                        rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.b_4s);
-                        videoView.setVideoURI(rawUri);
-                        videoView.start();
-                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                            @Override
-                            public void onCompletion(MediaPlayer mp)
-                            {
-                                mediaPlayer.stop();
-                            }
-                        });
+                        if(!recordFile.exists())
+                        {
+                            Toast.makeText(activity,"录音不存在~",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            uri = Uri.fromFile(recordFile);
+                            mediaPlayer = MediaPlayer.create(activity, uri);
+                            mediaPlayer.start();
+                            //播放视频
+                            rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.b_4s);
+                            videoView.setVideoURI(rawUri);
+                            videoView.start();
+                            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    mediaPlayer.stop();
+                                }
+                            });
+                        }
                         break;
 
                     case "2_5":
                         //播放录音
                         recordFile=new File("/mnt/sdcard", "2_5.aac");  // 指向音频文件
-                        uri = Uri.fromFile(recordFile);
-                        mediaPlayer = MediaPlayer.create(activity, uri);
-                        mediaPlayer.start();
-                        //播放视频
-                        rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.b_5s);
-                        videoView.setVideoURI(rawUri);
-                        videoView.start();
-                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                        if(!recordFile.exists())
                         {
-                            @Override
-                            public void onCompletion(MediaPlayer mp)
-                            {
-                                mediaPlayer.stop();
-                            }
-                        });
+                            Toast.makeText(activity,"录音不存在~",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            uri = Uri.fromFile(recordFile);
+                            mediaPlayer = MediaPlayer.create(activity, uri);
+                            mediaPlayer.start();
+                            //播放视频
+                            rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.b_5s);
+                            videoView.setVideoURI(rawUri);
+                            videoView.start();
+                            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    mediaPlayer.stop();
+                                }
+                            });
+                        }
                         break;
 
                     case "2_6":
                         //播放录音
                         recordFile=new File("/mnt/sdcard", "2_6.aac");  // 指向音频文件
-                        uri = Uri.fromFile(recordFile);
-                        mediaPlayer = MediaPlayer.create(activity, uri);
-                        mediaPlayer.start();
-                        //播放视频
-                        rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.b_6s);
-                        videoView.setVideoURI(rawUri);
-                        videoView.start();
-                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                        if(!recordFile.exists())
                         {
-                            @Override
-                            public void onCompletion(MediaPlayer mp)
-                            {
-                                mediaPlayer.stop();
-                            }
-                        });
-
+                            Toast.makeText(activity,"录音不存在~",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            uri = Uri.fromFile(recordFile);
+                            mediaPlayer = MediaPlayer.create(activity, uri);
+                            mediaPlayer.start();
+                            //播放视频
+                            rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.b_6s);
+                            videoView.setVideoURI(rawUri);
+                            videoView.start();
+                            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    mediaPlayer.stop();
+                                }
+                            });
+                        }
                         break;
 
                     case "2_7":
                         //播放录音
                         recordFile=new File("/mnt/sdcard", "2_7.aac");  // 指向音频文件
-                        uri = Uri.fromFile(recordFile);
-                        mediaPlayer = MediaPlayer.create(activity, uri);
-                        mediaPlayer.start();
-                        //播放视频
-                        rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.b_7s);
-                        videoView.setVideoURI(rawUri);
-                        videoView.start();
-                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                        if(!recordFile.exists())
                         {
-                            @Override
-                            public void onCompletion(MediaPlayer mp)
-                            {
-                                mediaPlayer.stop();
-                            }
-                        });
+                            Toast.makeText(activity,"录音不存在~",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            uri = Uri.fromFile(recordFile);
+                            mediaPlayer = MediaPlayer.create(activity, uri);
+                            mediaPlayer.start();
+                            //播放视频
+                            rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.b_7s);
+                            videoView.setVideoURI(rawUri);
+                            videoView.start();
+                            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    mediaPlayer.stop();
+                                }
+                            });
+                        }
                         break;
 
                     case "2_8":
                         //播放录音
                         recordFile=new File("/mnt/sdcard", "2_8.aac");  // 指向音频文件
-                        uri = Uri.fromFile(recordFile);
-                        mediaPlayer = MediaPlayer.create(activity, uri);
-                        mediaPlayer.start();
-                        //播放视频
-                        rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.b_8s);
-                        videoView.setVideoURI(rawUri);
-                        videoView.start();
-                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                        if(!recordFile.exists())
                         {
-                            @Override
-                            public void onCompletion(MediaPlayer mp)
-                            {
-                                mediaPlayer.stop();
-                            }
-                        });
+                            Toast.makeText(activity,"录音不存在~",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            uri = Uri.fromFile(recordFile);
+                            mediaPlayer = MediaPlayer.create(activity, uri);
+                            mediaPlayer.start();
+                            //播放视频
+                            rawUri = Uri.parse("android.resource://" + "com.example.doublez" + "/" + R.raw.b_8s);
+                            videoView.setVideoURI(rawUri);
+                            videoView.start();
+                            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    mediaPlayer.stop();
+                                }
+                            });
+                        }
                         break;
                 }
 
@@ -984,7 +1047,17 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
 
     public void destroy()
     {
+        //停止播放录音
         if(mediaPlayer!=null)
+        {
             mediaPlayer.stop();
+        }
+        //停止录音
+        if(mediaRecorder!=null)
+        {
+            mediaRecorder.stop();
+            mediaRecorder.release();
+            mediaRecorder = null;
+        }
     }
 }

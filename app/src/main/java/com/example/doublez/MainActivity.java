@@ -51,7 +51,9 @@ public class MainActivity extends AppCompatActivity
                         Toast.makeText(MainActivity.this,"排行榜", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.nav_2:
-                        Toast.makeText(MainActivity.this,"最近配音", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this,"最近配音", Toast.LENGTH_SHORT).show();
+                        Intent intent2=new Intent(MainActivity.this,Recent.class);
+                        startActivity(intent2);
                         break;
                     case R.id.nav_3:
                         Intent intent=new Intent(MainActivity.this,Login.class);
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity
         });
 
         //RecyclerView
-        RecyclerView recyclerView=(RecyclerView)findViewById(R.id.recycler_view);
+        RecyclerView recyclerView=(RecyclerView)findViewById(R.id.recycler_main_activity);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 

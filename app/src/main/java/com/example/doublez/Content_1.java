@@ -1,6 +1,5 @@
 package com.example.doublez;
 
-import android.annotation.SuppressLint;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.net.Uri;
@@ -13,9 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.MediaController;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import java.io.File;
@@ -68,10 +64,10 @@ public class Content_1 extends AppCompatActivity
 
 
         //RecyclerView
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_view1);
+        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_content1);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        initMainContent();
+        initSententce();
         adapter = new SentenceAdapter(sentenceList,Content_1.this,videoView);
         recyclerView.setAdapter(adapter);
 
@@ -213,7 +209,7 @@ public class Content_1 extends AppCompatActivity
         return true;
     }
 
-    private void initMainContent()
+    private void initSententce()
     {
         Sentence s1_1 = new Sentence("1_1","1. Un homme attend dans un café, un autre arrive, cela fait deux hommes. ");
         sentenceList.add(s1_1);

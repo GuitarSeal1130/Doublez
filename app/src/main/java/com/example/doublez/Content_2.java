@@ -1,6 +1,5 @@
 package com.example.doublez;
 
-import android.annotation.SuppressLint;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.net.Uri;
@@ -13,13 +12,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.MediaController;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,10 +63,10 @@ public class Content_2 extends AppCompatActivity
 
 
         //RecyclerView
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_view2);
+        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_content2);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        initMainContent();
+        initSentence();
         adapter = new SentenceAdapter(sentenceList,Content_2.this,videoView);
         recyclerView.setAdapter(adapter);
 
@@ -225,7 +220,7 @@ public class Content_2 extends AppCompatActivity
         return true;
     }
 
-    private void initMainContent()
+    private void initSentence()
     {
         Sentence s2_1 = new Sentence("2_1","1. Ça veut dire: de la campagne. ");
         sentenceList.add(s2_1);

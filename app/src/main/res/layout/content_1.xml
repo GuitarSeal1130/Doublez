@@ -20,7 +20,7 @@
 
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view1"
+        android:id="@+id/recycler_content1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/main_background1"/>
