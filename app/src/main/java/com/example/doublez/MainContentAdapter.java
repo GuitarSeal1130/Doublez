@@ -64,28 +64,7 @@ public class MainContentAdapter extends RecyclerView.Adapter<MainContentAdapter.
                 }
             }
         });
-        holder.mainContentImage.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                int position=holder.getAdapterPosition();
-                MainContent maincontent=mainContentList.get(position);
-                // Item的Image响应
-                switch(maincontent.getNum())
-                {
-                    case "1":
-                        Intent intent=new Intent(activity,Content_1.class);
-                        activity.startActivity(intent);
-                        break;
-                    case "2":
-                        Intent intent2=new Intent(activity,Content_2.class);
-                        activity.startActivity(intent2);
-                    default:
-                }
 
-            }
-        });
         return holder;
     }
 

@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.List;
 
-
 public class RecentItemAdapter extends RecyclerView.Adapter<RecentItemAdapter.ViewHolder>
 {
 
