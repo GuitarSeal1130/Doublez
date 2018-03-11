@@ -52,7 +52,7 @@ public class RecentItemAdapter extends RecyclerView.Adapter<RecentItemAdapter.Vi
                 int position=holder.getAdapterPosition();
                 RecentItem recentitem=recentitemList.get(position);
                 // Item的Text响应
-                switch(recentitem.getId())
+                switch(recentitem.getContent())
                 {
                     case "1":
 

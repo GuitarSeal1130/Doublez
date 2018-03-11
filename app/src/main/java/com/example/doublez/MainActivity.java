@@ -12,7 +12,10 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -20,6 +23,8 @@ public class MainActivity extends AppCompatActivity
 {
 
     private List<MainContent> maincontentList=new ArrayList<>();
+    private int t1=100;
+    private int t2=100;
     private int backpressed=0;
 
     @Override
@@ -150,11 +155,29 @@ public class MainActivity extends AppCompatActivity
         {
             Toast.makeText(MainActivity.this,"再按一次退出Doublez!", Toast.LENGTH_SHORT).show();
             backpressed=1;
+            Date date1=new Date();
+            SimpleDateFormat df1 = new SimpleDateFormat("ss");
+            t1=Integer.parseInt(df1.format(date1));
         }
         else
         {
-            backpressed=0;
-            finish();
+            Date date2=new Date();
+            SimpleDateFormat df2 = new SimpleDateFormat("ss");
+            t2=Integer.parseInt(df2.format(date2));
+            if(((t2-t1)<=3)||((t2-t1+60)<=3))
+            {
+                finish();
+            }
+            else
+            {
+                t1=100;
+                t2=100;
+                Toast.makeText(MainActivity.this,"再按一次退出Doublez!", Toast.LENGTH_SHORT).show();
+                backpressed=1;
+                Date date1=new Date();
+                SimpleDateFormat df1 = new SimpleDateFormat("ss");
+                t1=Integer.parseInt(df1.format(date1));
+            }
         }
     }
 

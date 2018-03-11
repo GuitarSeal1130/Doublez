@@ -5,6 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import org.litepal.LitePal;
+import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +17,7 @@ import java.util.List;
 public class Recent extends AppCompatActivity
 {
     private List<RecentItem> recentitemList=new ArrayList<>();
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -20,11 +26,11 @@ public class Recent extends AppCompatActivity
         setContentView(R.layout.recent);
 
         //Toolbar
-        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar_r);
         setSupportActionBar(toolbar);
 
         //RecyclerView
-        RecyclerView recyclerView=(RecyclerView)findViewById(R.id.recycler_recent);
+        recyclerView=(RecyclerView)findViewById(R.id.recycler_recent);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -33,11 +39,40 @@ public class Recent extends AppCompatActivity
         recyclerView.setAdapter(adapter);
     }
 
+
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.recent_toolbar,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch(item.getItemId())
+        {
+            //按钮监听函数
+            case R.id.play:
+                DataSupport.deleteAll(RecentItem.class);
+                recentitemList.clear();
+                initRecentItem();
+                RecentItemAdapter adapter=new RecentItemAdapter(recentitemList,Recent.this);
+                recyclerView.setAdapter(adapter);
+            default:
+        }
+        return true;
+    }
+
     public void initRecentItem()
     {
-        RecentItem r1=new RecentItem("1","2018.3.7","Apple","86");
-        recentitemList.add(r1);
+        //查询配音记录
+        List<RecentItem> recentitems = DataSupport.findAll(RecentItem.class);
+        for(RecentItem recentitem:recentitems)
+        {
+            recentitemList.add(recentitem);
+        }
     }
+
 
     public void onBackPressed()
     {

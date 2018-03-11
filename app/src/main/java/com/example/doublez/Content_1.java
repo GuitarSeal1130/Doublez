@@ -15,7 +15,9 @@ import android.view.View;
 import android.widget.VideoView;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -36,6 +38,12 @@ public class Content_1 extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_1);
+
+        //添加配音记录
+        Date date=new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd    HH:mm:ss");
+        RecentItem recentitem1=new RecentItem(df.format(date),"La Politique","60");
+        recentitem1.save();
 
         //Toolbar
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar1);

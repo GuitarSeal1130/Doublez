@@ -6,14 +6,21 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class Login extends AppCompatActivity
 {
-
+    private int d1=100;
+    private int d2=100;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -62,6 +69,18 @@ public class Login extends AppCompatActivity
                 }
             }
         });
+
+        ImageView doublez=(ImageView)findViewById(R.id.main_logo);
+        doublez.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent=new Intent(Login.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 
 }
