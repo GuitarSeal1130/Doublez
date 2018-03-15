@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
-    <dbname value="RecentItemList">
-
+    <dbname value="RecentItem">
     </dbname>
-    <version value="1">
+    <version value="8">
 
     </version>
     <list>
         <mapping class="com.example.doublez.RecentItem">
-
         </mapping>
     </list>
 </litepal>

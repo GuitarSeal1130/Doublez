@@ -42,7 +42,7 @@ public class Content_1 extends AppCompatActivity
         //添加配音记录
         Date date=new Date();
         SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd    HH:mm:ss");
-        RecentItem recentitem1=new RecentItem(df.format(date),"La Politique","60");
+        RecentItem recentitem1=new RecentItem(df.format(date),"la_politique","La Politique","60");
         recentitem1.save();
 
         //Toolbar

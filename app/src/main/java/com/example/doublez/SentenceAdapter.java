@@ -220,7 +220,7 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
                     {
                         case "1_1":
                             //指向音频文件
-                            recordFile=new File("/mnt/sdcard/doublez", "1_1.aac");
+                            recordFile=new File("/mnt/sdcard", "1_1.aac");
                             if (recordFile.exists())
                                 recordFile.delete();
                             //开始录音
@@ -247,7 +247,7 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
 
                         case "1_2":
                             //指向音频文件
-                            recordFile=new File("/mnt/sdcard/doublez", "1_2.aac");
+                            recordFile=new File("/mnt/sdcard", "1_2.aac");
                             if (recordFile.exists())
                                 recordFile.delete();
                             //开始录音
@@ -275,7 +275,7 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
                         case "1_3":
 
                             //指向音频文件
-                            recordFile=new File("/mnt/sdcard/doublez", "1_3.aac");
+                            recordFile=new File("/mnt/sdcard", "1_3.aac");
                             if (recordFile.exists())
                                 recordFile.delete();
                             //开始录音

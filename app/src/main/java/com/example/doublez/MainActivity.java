@@ -7,11 +7,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import org.litepal.crud.DataSupport;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -77,6 +80,7 @@ public class MainActivity extends AppCompatActivity
         RecyclerView recyclerView=(RecyclerView)findViewById(R.id.recycler_main_activity);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));  // 分割线
 
         initMainContent();
         MainContentAdapter adapter=new MainContentAdapter(maincontentList,MainActivity.this);
@@ -102,7 +106,7 @@ public class MainActivity extends AppCompatActivity
         maincontentList.add(e);
 
         MainContent f=new MainContent("6","La belle et la Bête",R.drawable.la_belle_et_la_bete);
-        maincontentList.add(f);;
+        maincontentList.add(f);
 
         MainContent g=new MainContent("7","Fanfan",R.drawable.fanfan);
         maincontentList.add(g);

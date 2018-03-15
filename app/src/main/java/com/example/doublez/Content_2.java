@@ -42,7 +42,7 @@ public class Content_2 extends AppCompatActivity
         //添加配音记录
         Date date=new Date();
         SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd    HH:mm:ss");
-        RecentItem recentitem=new RecentItem(df.format(date),"La Gloire de mon Père","70");
+        RecentItem recentitem=new RecentItem(df.format(date),"la_gloire_de_mon_pere","La Gloire de mon Père","70");
         recentitem.save();
 
         //Toolbar

@@ -32,7 +32,7 @@
         </activity>
 
         <activity android:name=".Recent"
-            android:label="Doublez">
+            android:label="最近配音">
         </activity>
 
     </application>

@@ -1,13 +1,17 @@
 package com.example.doublez;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.lang.reflect.Field;
 import java.util.List;
 
 public class RecentItemAdapter extends RecyclerView.Adapter<RecentItemAdapter.ViewHolder>
@@ -20,6 +24,7 @@ public class RecentItemAdapter extends RecyclerView.Adapter<RecentItemAdapter.Vi
     {
         View recentitemView;
         TextView recentitemDate;
+        ImageView recentitemImageId;
         TextView recentitemContent;
         TextView recentitemScore;
 
@@ -28,6 +33,7 @@ public class RecentItemAdapter extends RecyclerView.Adapter<RecentItemAdapter.Vi
             super(view);
             recentitemView=view;
             recentitemDate=(TextView)view.findViewById(R.id.recent_date);
+            recentitemImageId=(ImageView)view.findViewById(R.id.recent_image);
             recentitemContent=(TextView)view.findViewById(R.id.recent_content);
             recentitemScore=(TextView)view.findViewById(R.id.recent_score);
         }
@@ -72,6 +78,7 @@ public class RecentItemAdapter extends RecyclerView.Adapter<RecentItemAdapter.Vi
     {
         RecentItem recentitem=recentitemList.get(position);
         holder.recentitemDate.setText(recentitem.getDate());
+        holder.recentitemImageId.setImageResource(getResource(recentitem.getImageId()));
         holder.recentitemContent.setText(recentitem.getContent());
         holder.recentitemScore.setText(recentitem.getScore());
     }
@@ -82,4 +89,15 @@ public class RecentItemAdapter extends RecyclerView.Adapter<RecentItemAdapter.Vi
         return recentitemList.size();
     }
 
+    public int  getResource(String imageName){
+        Class drawable = R.drawable.class;
+        try {
+            Field field = drawable.getField(imageName);
+            return field.getInt(imageName);
+        } catch (NoSuchFieldException e) {
+            return 0;
+        } catch (IllegalAccessException e) {
+            return 0;
+        }
+    }
 }

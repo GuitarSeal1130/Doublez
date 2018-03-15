@@ -2,16 +2,16 @@ package com.example.doublez;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import org.litepal.LitePal;
 import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Recent extends AppCompatActivity
@@ -33,6 +33,7 @@ public class Recent extends AppCompatActivity
         recyclerView=(RecyclerView)findViewById(R.id.recycler_recent);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));  // 分割线
 
         initRecentItem();
         RecentItemAdapter adapter=new RecentItemAdapter(recentitemList,Recent.this);
@@ -67,6 +68,7 @@ public class Recent extends AppCompatActivity
     {
         //查询配音记录
         List<RecentItem> recentitems = DataSupport.findAll(RecentItem.class);
+        Collections.reverse(recentitems); // 倒序排列
         for(RecentItem recentitem:recentitems)
         {
             recentitemList.add(recentitem);
