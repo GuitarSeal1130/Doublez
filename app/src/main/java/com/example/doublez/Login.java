@@ -12,15 +12,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
 public class Login extends AppCompatActivity
 {
-    private int d1=100;
-    private int d2=100;
+    private EditText username;
+    private EditText password;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -28,9 +29,10 @@ public class Login extends AppCompatActivity
         setContentView(R.layout.login);
 
         // EditText
-        final EditText username=(EditText)findViewById(R.id.username_blank);
-        final EditText password=(EditText)findViewById(R.id.password_blank);
+        username=(EditText)findViewById(R.id.username_blank);
+        password=(EditText)findViewById(R.id.password_blank);
         password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
 
         // Button
         Button login=(Button)findViewById(R.id.login);
@@ -81,6 +83,18 @@ public class Login extends AppCompatActivity
             }
         });
 
+        TextView signup=(TextView)findViewById(R.id.login_signup);
+        signup.setOnClickListener(new View.OnClickListener()
+        {
+
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent=new Intent(Login.this,Signup.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 }

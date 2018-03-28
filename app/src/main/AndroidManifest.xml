@@ -31,6 +31,10 @@
             android:label="La Gloire de mon Père 1">
         </activity>
 
+        <activity android:name=".Signup"
+            android:label="注册">
+        </activity>
+
         <activity android:name=".Recent"
             android:label="最近配音">
         </activity>

@@ -34,13 +34,13 @@
         android:orientation="horizontal"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_gravity="center_horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Username: "
+            android:text="邮箱: "
             android:textColor="#000000"/>
 
         <EditText
@@ -61,7 +61,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password: "
+            android:text="密码: "
             android:textColor="#000000"/>
 
         <EditText
@@ -74,11 +74,21 @@
 
     <Button
         android:id="@+id/login"
-        android:layout_width="200dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_gravity="center_horizontal"
-        android:text="Log in"
+        android:text="Log in!"
         android:textAllCaps="false"/>
+
+    <TextView
+        android:id="@+id/login_signup"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Sign up!"
+        android:autoLink="all"
+        android:textColor="#000000"/>
 
 </LinearLayout>
