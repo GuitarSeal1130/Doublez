@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/play"
-        android:icon="@mipmap/doublez"
+        android:icon="@mipmap/delete"
         android:title="Play"
         app:showAsAction="always"
         />

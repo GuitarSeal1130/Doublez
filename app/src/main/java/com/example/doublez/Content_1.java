@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.VideoView;
 
 import java.io.File;
+import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,6 +34,9 @@ public class Content_1 extends AppCompatActivity
     private File recordFile;
     private Uri uri;
     private MediaRecorder mediaRecorder=null;
+
+    private int amount=7;
+    private int a;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +98,7 @@ public class Content_1 extends AppCompatActivity
         {
             //Doublez按钮监听函数
             case R.id.play:
-                count=1;
+                a=1;
                 //停止播放录音
                 if(mediaPlayer!=null)
                 {
@@ -107,7 +111,6 @@ public class Content_1 extends AppCompatActivity
                     mediaRecorder.release();
                     mediaRecorder = null;
                 }
-
                 //播放视频
                 rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_1s);
                 videoView.setVideoURI(rawUri);
@@ -117,97 +120,27 @@ public class Content_1 extends AppCompatActivity
                 uri = Uri.fromFile(recordFile);
                 mediaPlayer = MediaPlayer.create(Content_1.this, uri);
                 mediaPlayer.start();
-                count++;
 
                 videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
                 {
                     //@Override
                     public void onCompletion(MediaPlayer mp)
                     {
-                        //停止播放录音
-                        if(mediaPlayer!=null)
-                            mediaPlayer.stop();
-                        switch(count)
+                        a++;
+                        if(a<=amount)
                         {
-                            case 2:
-                                //播放视频
-                                rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_2s);
-                                videoView.setVideoURI(rawUri);
-                                videoView.start();
-                                //播放录音
+                            //停止播放录音
+                            if (mediaPlayer != null)
                                 mediaPlayer.stop();
-                                recordFile=new File("/mnt/sdcard", "1_2.aac");  // 指向音频文件
-                                uri = Uri.fromFile(recordFile);
-                                mediaPlayer = MediaPlayer.create(Content_1.this, uri);
-                                mediaPlayer.start();
-                                count++;
-                                break;
-                            case 3:
-                                //播放视频
-                                rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_3s);
-                                videoView.setVideoURI(rawUri);
-                                videoView.start();
-                                //播放录音
-                                recordFile=new File("/mnt/sdcard", "1_3.aac");  // 指向音频文件
-                                uri = Uri.fromFile(recordFile);
-                                mediaPlayer = MediaPlayer.create(Content_1.this, uri);
-                                mediaPlayer.start();
-                                count++;
-                                break;
-                            case 4:
-                                //播放视频
-                                rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_4s);
-                                videoView.setVideoURI(rawUri);
-                                videoView.start();
-                                //播放录音
-                                recordFile=new File("/mnt/sdcard", "1_4.aac");  // 指向音频文件
-                                uri = Uri.fromFile(recordFile);
-                                mediaPlayer = MediaPlayer.create(Content_1.this, uri);
-                                mediaPlayer.start();
-                                count++;
-                                break;
-                            case 5:
-                                //播放视频
-                                rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_5s);
-                                videoView.setVideoURI(rawUri);
-                                videoView.start();
-                                //播放录音
-                                recordFile=new File("/mnt/sdcard", "1_5.aac");  // 指向音频文件
-                                uri = Uri.fromFile(recordFile);
-                                mediaPlayer = MediaPlayer.create(Content_1.this, uri);
-                                mediaPlayer.start();
-                                count++;
-                                break;
-                            case 6:
-                                //播放视频
-                                rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_6s);
-                                videoView.setVideoURI(rawUri);
-                                videoView.start();
-                                //播放录音
-                                recordFile=new File("/mnt/sdcard", "1_6.aac");  // 指向音频文件
-                                uri = Uri.fromFile(recordFile);
-                                mediaPlayer = MediaPlayer.create(Content_1.this, uri);
-                                mediaPlayer.start();
-                                count++;
-                                break;
-                            case 7:
-                                //播放视频
-                                rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_7s);
-                                videoView.setVideoURI(rawUri);
-                                videoView.start();
-                                //播放录音
-                                recordFile=new File("/mnt/sdcard", "1_7.aac");  // 指向音频文件
-                                uri = Uri.fromFile(recordFile);
-                                mediaPlayer = MediaPlayer.create(Content_1.this, uri);
-                                mediaPlayer.start();
-                                count++;
-                                break;
-                            case 8:
-                                count=1;
-                                mediaPlayer.reset();
-                                break;
-                            default:
-
+                            //播放视频
+                            rawUri = Uri.parse("android.resource://" + getPackageName() + "/" + getResource("a_" + Integer.toString(a) + "s"));
+                            videoView.setVideoURI(rawUri);
+                            videoView.start();
+                            //播放录音
+                            recordFile = new File("/mnt/sdcard", "1_" + Integer.toString(a) + ".aac");  // 指向音频文件
+                            uri = Uri.fromFile(recordFile);
+                            mediaPlayer = MediaPlayer.create(Content_1.this, uri);
+                            mediaPlayer.start();
                         }
                     }
                 });
@@ -216,6 +149,7 @@ public class Content_1 extends AppCompatActivity
         }
         return true;
     }
+
 
     private void initSententce()
     {
@@ -246,6 +180,18 @@ public class Content_1 extends AppCompatActivity
     {
         adapter.destroy();
         finish();
+    }
+
+    public int  getResource(String imageName){
+        Class raw = R.raw.class;
+        try {
+            Field field = raw.getField(imageName);
+            return field.getInt(imageName);
+        } catch (NoSuchFieldException e) {
+            return 0;
+        } catch (IllegalAccessException e) {
+            return 0;
+        }
     }
 
 }

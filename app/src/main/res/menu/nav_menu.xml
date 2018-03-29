@@ -9,11 +9,11 @@
             android:title="排行榜" />
         <item
             android:id="@+id/nav_2"
-            android:icon="@drawable/banana_pic"
+            android:icon="@mipmap/recent"
             android:title="最近配音" />
         <item
             android:id="@+id/nav_3"
-            android:icon="@drawable/cherry_pic"
+            android:icon="@mipmap/exit"
             android:title="登出" />
     </group>
 

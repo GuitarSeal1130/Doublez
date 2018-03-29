@@ -3,6 +3,8 @@ package com.example.doublez;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -15,7 +17,12 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.litepal.crud.DataSupport;
@@ -28,17 +35,33 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
 {
-
     private List<MainContent> maincontentList=new ArrayList<>();
     private int t1=100;
     private int t2=100;
     private int backpressed=0;
+
+    private String email,username;
+    private byte[] avatarByte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //账户信息显示
+        Intent intent=getIntent();
+        email=intent.getStringExtra("email");
+        Log.d("Email",email);
+        List<User> users= DataSupport.findAll(User.class);
+        for(User user:users)
+        {
+            if(user.getEmail().equals(email))
+            {
+                username=user.getUsername();
+                avatarByte=user.getavatarBMP();
+            }
+        }
 
         //Toolbar
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
@@ -52,6 +75,15 @@ public class MainActivity extends AppCompatActivity
 
         //NavigationView
         NavigationView navView = (NavigationView) findViewById(R.id.nav_view);
+        View headerLayout = navView.inflateHeaderView(R.layout.nav_header);
+        TextView nav_username = (TextView) headerLayout.findViewById(R.id.username);
+        TextView nav_email = (TextView) headerLayout.findViewById(R.id.mail);
+        ImageView nav_avatar = (ImageView) headerLayout.findViewById(R.id.icon_image);
+        nav_email.setText(email);
+        nav_username.setText(username);
+        Bitmap bitmap= BitmapFactory.decodeByteArray(avatarByte,0,avatarByte.length);
+        nav_avatar.setImageBitmap(bitmap);
+
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
             @Override

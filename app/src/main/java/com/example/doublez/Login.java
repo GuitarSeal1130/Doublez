@@ -1,8 +1,12 @@
 package com.example.doublez;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.PasswordTransformationMethod;
@@ -14,8 +18,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.litepal.crud.DataSupport;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class Login extends AppCompatActivity
 {
@@ -28,9 +35,17 @@ public class Login extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
+        if(ContextCompat.checkSelfPermission(Login.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(Login.this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
+        }
+
         // EditText
         username=(EditText)findViewById(R.id.username_blank);
         password=(EditText)findViewById(R.id.password_blank);
+
+        username.setText("admin@mail.com");
+        password.setText("123");
         password.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
 
@@ -42,16 +57,23 @@ public class Login extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                boolean pass=false;
                 String inputUsername=username.getText().toString();
                 String inputPassword=password.getText().toString();
-                if(inputUsername.equals("admin") && inputPassword.equals("admin"))
+                List<User> users= DataSupport.findAll(User.class);
+                for(User user:users)
                 {
-                    Intent intent=new Intent(Login.this,MainActivity.class);
-                    intent.putExtra("Username",inputUsername);
-                    startActivity(intent);
-                    finish();
+                    if(user.getEmail().equals(inputUsername) && user.getPassword().equals(inputPassword))
+                    {
+                        pass=true;
+                        Intent intent=new Intent(Login.this,MainActivity.class);
+                        intent.putExtra("email",inputUsername);
+                        startActivity(intent);
+                        finish();
+                        break;
+                    }
                 }
-                else
+                if(!pass)
                 {
                     // AlertDialog
                     AlertDialog.Builder dialog=new AlertDialog.Builder(Login.this);
@@ -68,6 +90,7 @@ public class Login extends AppCompatActivity
                         }
                     });
                     dialog.show();
+
                 }
             }
         });
@@ -92,7 +115,6 @@ public class Login extends AppCompatActivity
             {
                 Intent intent=new Intent(Login.this,Signup.class);
                 startActivity(intent);
-                finish();
             }
         });
     }
