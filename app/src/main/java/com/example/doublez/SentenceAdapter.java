@@ -412,6 +412,8 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
                             //开始录音
                             mediaRecorder=new MediaRecorder();
                             mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+                            mediaRecorder.setAudioSamplingRate(44100);
+                            mediaRecorder.setAudioEncodingBitRate(96000);
                             mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS);
                             mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
                             mediaRecorder.setOutputFile(recordFile.getAbsolutePath());
@@ -438,6 +440,8 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
                             //开始录音
                             mediaRecorder=new MediaRecorder();
                             mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+                            mediaRecorder.setAudioSamplingRate(44100);
+                            mediaRecorder.setAudioEncodingBitRate(96000);
                             mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS);
                             mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
                             mediaRecorder.setOutputFile(recordFile.getAbsolutePath());
@@ -466,6 +470,8 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
                             //开始录音
                             mediaRecorder=new MediaRecorder();
                             mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+                            mediaRecorder.setAudioSamplingRate(44100);
+                            mediaRecorder.setAudioEncodingBitRate(96000);
                             mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS);
                             mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
                             mediaRecorder.setOutputFile(recordFile.getAbsolutePath());
@@ -493,6 +499,8 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
                             //开始录音
                             mediaRecorder=new MediaRecorder();
                             mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+                            mediaRecorder.setAudioSamplingRate(44100);
+                            mediaRecorder.setAudioEncodingBitRate(96000);
                             mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS);
                             mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
                             mediaRecorder.setOutputFile(recordFile.getAbsolutePath());
@@ -519,6 +527,8 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
                             //开始录音
                             mediaRecorder=new MediaRecorder();
                             mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+                            mediaRecorder.setAudioSamplingRate(44100);
+                            mediaRecorder.setAudioEncodingBitRate(96000);
                             mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS);
                             mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
                             mediaRecorder.setOutputFile(recordFile.getAbsolutePath());
@@ -545,6 +555,8 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
                             //开始录音
                             mediaRecorder=new MediaRecorder();
                             mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+                            mediaRecorder.setAudioSamplingRate(44100);
+                            mediaRecorder.setAudioEncodingBitRate(96000);
                             mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS);
                             mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
                             mediaRecorder.setOutputFile(recordFile.getAbsolutePath());
@@ -571,6 +583,8 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
                             //开始录音
                             mediaRecorder=new MediaRecorder();
                             mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+                            mediaRecorder.setAudioSamplingRate(44100);
+                            mediaRecorder.setAudioEncodingBitRate(96000);
                             mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS);
                             mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
                             mediaRecorder.setOutputFile(recordFile.getAbsolutePath());
@@ -597,6 +611,8 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
                             //开始录音
                             mediaRecorder=new MediaRecorder();
                             mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+                            mediaRecorder.setAudioSamplingRate(44100);
+                            mediaRecorder.setAudioEncodingBitRate(96000);
                             mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS);
                             mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
                             mediaRecorder.setOutputFile(recordFile.getAbsolutePath());

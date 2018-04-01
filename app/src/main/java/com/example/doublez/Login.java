@@ -43,9 +43,6 @@ public class Login extends AppCompatActivity
         // EditText
         username=(EditText)findViewById(R.id.username_blank);
         password=(EditText)findViewById(R.id.password_blank);
-
-        username.setText("admin@mail.com");
-        password.setText("123");
         password.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
 
