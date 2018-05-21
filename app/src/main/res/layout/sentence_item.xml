@@ -32,5 +32,16 @@
         android:layout_weight="1"
         android:src="@mipmap/play"
         android:layout_gravity="center_vertical"/>
+    <TextView
+        android:id="@+id/score_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:text="未配音"/>
 
 </LinearLayout>

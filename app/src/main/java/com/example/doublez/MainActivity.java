@@ -50,8 +50,14 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         //账户信息显示
-        Intent intent=getIntent();
-        email=intent.getStringExtra("email");
+        try {
+            Intent intent = getIntent();
+            email = intent.getStringExtra("email");
+        }
+        catch(Exception e)
+        {
+            email="857396722@qq.com";
+        }
         Log.d("Email",email);
         List<User> users= DataSupport.findAll(User.class);
         for(User user:users)

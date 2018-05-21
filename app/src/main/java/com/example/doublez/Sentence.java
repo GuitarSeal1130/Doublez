@@ -5,6 +5,7 @@ public class Sentence
 {
     private String num;
     private String text;
+    private ReadAACFileThread audioThread=null;
 
     public Sentence(String num,String text)
     {
@@ -20,6 +21,17 @@ public class Sentence
     public String getText()
     {
         return this.text;
+    }
+
+    public void thread(String filename)
+    {
+        this.audioThread=new ReadAACFileThread(filename);
+        this.audioThread.start();
+    }
+
+    public ReadAACFileThread getThread()
+    {
+        return this.audioThread;
     }
 
 }

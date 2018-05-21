@@ -156,11 +156,11 @@ public class Content_2 extends AppCompatActivity
                         {
                             if (audioThread != null || !audioThread.isAlive())
                             {
-                                ceps2_2 = audioThread.getCeps();
+                                ceps2_2 = adapter.returnList().get(2).getThread().getCeps();
                                 for (int i = 1; i < 13; i++)
                                     Log.d("Ceps", Double.toString(ceps2_2[i]));
 
-                                //从这里开始
+                                // 算分
                                 final int score1 =(int)Statistics.Score1(ceps2_2,cepsb_2);
                                 final int score2 =(int)Statistics.Score2(ceps2_2,cepsb_2);
                                 Log.d("Score1", Integer.toString(score1));
@@ -239,9 +239,10 @@ public class Content_2 extends AppCompatActivity
     @Override
     public void onBackPressed()
     {
+        finish();
+
         adapter.destroy();
         audioThread=null;
-        finish();
     }
 
     public int  getResource(String imageName){
