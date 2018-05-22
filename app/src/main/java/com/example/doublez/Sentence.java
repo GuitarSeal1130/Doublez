@@ -6,6 +6,7 @@ public class Sentence
     private String num;
     private String text;
     private ReadAACFileThread audioThread=null;
+    private double[] mfcc=null;
 
     public Sentence(String num,String text)
     {

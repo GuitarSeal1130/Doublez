@@ -39,9 +39,7 @@ public class Content_2 extends AppCompatActivity
     private MediaRecorder mediaRecorder=null;
     private int amount=8;
     private int a=0;
-    private ReadAACFileThread audioThread;
 
-    private double[] ceps2_2=new double[13];
     private double[] cepsb_2={0,-1.0609,-1.1623,0.9289,0.0196,-0.1308,-0.0285,0.2883,0.1368,-0.2297,-0.7038,-0.0999,0.4408};
 
     @Override
@@ -49,13 +47,9 @@ public class Content_2 extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_2);
 
-        //添加配音记录
-
-
         //Toolbar
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
-
 
         // VdeoView
         videoView = (VideoView) findViewById(R.id.video_view2);
@@ -74,7 +68,6 @@ public class Content_2 extends AppCompatActivity
                 return false;
             }
         });
-
 
         //RecyclerView
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_content2);
@@ -100,14 +93,6 @@ public class Content_2 extends AppCompatActivity
         {
             //Doublez按钮监听函数
             case R.id.play:
-
-                // 开始计算的线程
-                if (audioThread == null || !audioThread.isAlive())
-                {
-                    audioThread = new ReadAACFileThread("2_2.aac");
-                    audioThread.start();
-                }
-
                 a=1;
                 //停止播放录音
                 if(mediaPlayer!=null)
@@ -154,48 +139,46 @@ public class Content_2 extends AppCompatActivity
                         }
                         else if(a==amount+1)
                         {
-                            if (audioThread != null || !audioThread.isAlive())
+                            double[] ceps2_1 = adapter.returnList().get(0).getThread().getCeps();
+                            double[] ceps2_2 = adapter.returnList().get(1).getThread().getCeps();
+                            double[] ceps2_3 = adapter.returnList().get(2).getThread().getCeps();
+                            double[] ceps2_4 = adapter.returnList().get(3).getThread().getCeps();
+                            double[] ceps2_5 = adapter.returnList().get(4).getThread().getCeps();
+                            double[] ceps2_6 = adapter.returnList().get(5).getThread().getCeps();
+                            double[] ceps2_7 = adapter.returnList().get(6).getThread().getCeps();
+                            double[] ceps2_8 = adapter.returnList().get(7).getThread().getCeps();
+
+                            // 算分
+                            final int score1 =(int)Statistics.Score1(ceps2_2,cepsb_2);
+                            final int score2 =(int)Statistics.Score2(ceps2_2,cepsb_2);
+                            Log.d("Score1", Integer.toString(score1));
+                            Log.d("Score2", Integer.toString(score2));
+
+                            // AlertDialog
+                            AlertDialog.Builder dialog=new AlertDialog.Builder(Content_2.this);
+                            dialog.setTitle("匹配结束");
+                            dialog.setMessage("您的平均分数为："+Integer.toString(score1));
+                            dialog.setCancelable(true);
+                            dialog.setPositiveButton("存储",new DialogInterface.OnClickListener()
                             {
-                                ceps2_2 = adapter.returnList().get(2).getThread().getCeps();
-                                for (int i = 1; i < 13; i++)
-                                    Log.d("Ceps", Double.toString(ceps2_2[i]));
-
-                                // 算分
-                                final int score1 =(int)Statistics.Score1(ceps2_2,cepsb_2);
-                                final int score2 =(int)Statistics.Score2(ceps2_2,cepsb_2);
-                                Log.d("Score1", Integer.toString(score1));
-                                Log.d("Score2", Integer.toString(score2));
-
-                                // AlertDialog
-                                AlertDialog.Builder dialog=new AlertDialog.Builder(Content_2.this);
-                                dialog.setTitle("匹配结束");
-                                dialog.setMessage("您的平均分数为："+Integer.toString(score1));
-                                dialog.setCancelable(true);
-                                dialog.setPositiveButton("存储",new DialogInterface.OnClickListener()
+                                @Override
+                                public void onClick(DialogInterface dialog, int which)
                                 {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which)
-                                    {
-                                        Date date=new Date();
-                                        SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd    HH:mm:ss");
-                                        RecentItem recentitem=new RecentItem(df.format(date),"la_gloire_de_mon_pere","La Gloire de mon Père 1",Integer.toString(score1));
-                                        recentitem.save();
-                                    }
-                                });
-                                dialog.setNegativeButton("放弃",new DialogInterface.OnClickListener()
+                                    Date date=new Date();
+                                    SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd    HH:mm:ss");
+                                    RecentItem recentitem=new RecentItem(df.format(date),"la_gloire_de_mon_pere","La Gloire de mon Père 1",Integer.toString(score1));
+                                    recentitem.save();
+                                }
+                            });
+                            dialog.setNegativeButton("放弃",new DialogInterface.OnClickListener()
+                            {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which)
                                 {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which)
-                                    {
 
-                                    }
-                                });
-                                dialog.show();
-                            }
-                            else
-                                audioThread=null;
-
-
+                                }
+                            });
+                            dialog.show();
                         }
 
                     }
@@ -240,9 +223,7 @@ public class Content_2 extends AppCompatActivity
     public void onBackPressed()
     {
         finish();
-
         adapter.destroy();
-        audioThread=null;
     }
 
     public int  getResource(String imageName){

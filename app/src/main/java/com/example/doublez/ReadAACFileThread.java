@@ -129,7 +129,6 @@ public class ReadAACFileThread extends Thread {
             Log.e("ReadH264FileThread", "File not found");
         }
         audioUtil.stop();
-        getCeps();
 
     }
 

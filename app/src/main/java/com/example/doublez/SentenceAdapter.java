@@ -672,14 +672,67 @@ public class SentenceAdapter extends RecyclerView.Adapter<SentenceAdapter.ViewHo
                     }
                     switch(sentence.getNum())
                     {
+                        case "1_1":
+                            sentenceList.get(0).thread("1_1.aac");
+                            holder.scoreText.setText("已配音");
+                            break;
+                        case "1_2":
+                            sentenceList.get(1).thread("1_2.aac");
+                            holder.scoreText.setText("已配音");
+                            break;
+                        case "1_3":
+                            sentenceList.get(2).thread("1_3.aac");
+                            holder.scoreText.setText("已配音");
+                            break;
+                        case "1_4":
+                            sentenceList.get(3).thread("1_4.aac");
+                            holder.scoreText.setText("已配音");
+                            break;
+                        case "1_5":
+                            sentenceList.get(4).thread("1_5.aac");
+                            holder.scoreText.setText("已配音");
+                            break;
+                        case "1_6":
+                            sentenceList.get(5).thread("1_6.aac");
+                            holder.scoreText.setText("已配音");
+                            break;
+                        case "1_7":
+                            sentenceList.get(6).thread("1_7.aac");
+                            holder.scoreText.setText("已配音");
+                            break;
+
                         case "2_1":
-                            sentenceList.get(1).thread("2_1.aac");
+                            sentenceList.get(0).thread("2_1.aac");
                             holder.scoreText.setText("已配音");
                             break;
                         case "2_2":
-                            sentenceList.get(2).thread("2_2.aac");
+                            sentenceList.get(1).thread("2_2.aac");
                             holder.scoreText.setText("已配音");
-                                break;
+                            break;
+                        case "2_3":
+                            sentenceList.get(2).thread("2_3.aac");
+                            holder.scoreText.setText("已配音");
+                            break;
+                        case "2_4":
+                            sentenceList.get(3).thread("2_4.aac");
+                            holder.scoreText.setText("已配音");
+                            break;
+                        case "2_5":
+                            sentenceList.get(4).thread("2_5.aac");
+                            holder.scoreText.setText("已配音");
+                            break;
+                        case "2_6":
+                            sentenceList.get(5).thread("2_6.aac");
+                            holder.scoreText.setText("已配音");
+                            break;
+                        case "2_7":
+                            sentenceList.get(6).thread("2_7.aac");
+                            holder.scoreText.setText("已配音");
+                            break;
+                        case "2_8":
+                            sentenceList.get(7).thread("2_8.aac");
+                            holder.scoreText.setText("已配音");
+                            break;
                     }
 
                 }
