@@ -60,6 +60,27 @@ public class MainContentAdapter extends RecyclerView.Adapter<MainContentAdapter.
                     case "2":
                         Intent intent2=new Intent(activity,Content_2.class);
                         activity.startActivity(intent2);
+                        break;
+                    case "3":
+                        Intent intent3=new Intent(activity,Content_1.class);
+                        activity.startActivity(intent3);
+                        break;
+                    case "4":
+                        Intent intent4=new Intent(activity,Content_1.class);
+                        activity.startActivity(intent4);
+                        break;
+                    case "5":
+                        Intent intent5=new Intent(activity,Content_1.class);
+                        activity.startActivity(intent5);
+                        break;
+                    case "6":
+                        Intent intent6=new Intent(activity,Content_1.class);
+                        activity.startActivity(intent6);
+                        break;
+                    case "7":
+                        Intent intent7=new Intent(activity,Content_1.class);
+                        activity.startActivity(intent7);
+                        break;
                     default:
                 }
             }

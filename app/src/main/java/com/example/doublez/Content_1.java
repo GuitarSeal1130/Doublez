@@ -44,6 +44,7 @@ public class Content_1 extends AppCompatActivity
         setContentView(R.layout.content_1);
 
         //添加配音记录
+        // 加入随机数
         Date date=new Date();
         SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd    HH:mm:ss");
         RecentItem recentitem1=new RecentItem(df.format(date),"la_politique","La Politique","60");

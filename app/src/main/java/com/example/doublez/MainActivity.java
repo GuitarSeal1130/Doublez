@@ -152,39 +152,6 @@ public class MainActivity extends AppCompatActivity
 
         MainContent g=new MainContent("7","Fanfan",R.drawable.fanfan);
         maincontentList.add(g);
-
-        MainContent h=new MainContent("8","Pineapple",R.drawable.pineapple_pic);
-        maincontentList.add(h);
-
-        MainContent i=new MainContent("9","Strawberry",R.drawable.strawberry_pic);
-        maincontentList.add(i);
-
-        MainContent j=new MainContent("10","Apple",R.drawable.apple_pic);
-        maincontentList.add(j);
-
-        MainContent k=new MainContent("11","Banana",R.drawable.banana_pic);
-        maincontentList.add(k);
-
-        MainContent l=new MainContent("12","Cherry",R.drawable.cherry_pic);
-        maincontentList.add(l);
-
-        MainContent m=new MainContent("13","Lemond",R.drawable.lemond_pic);
-        maincontentList.add(m);
-
-        MainContent n=new MainContent("14","Mango",R.drawable.mango_pic);
-        maincontentList.add(n);
-
-        MainContent o=new MainContent("15","Melon",R.drawable.melon_pic);
-        maincontentList.add(o);;
-
-        MainContent p=new MainContent("16","Pear",R.drawable.pear_pic);
-        maincontentList.add(p);
-
-        MainContent q=new MainContent("17","Pineapple",R.drawable.pineapple_pic);
-        maincontentList.add(q);
-
-        MainContent r=new MainContent("18","Strawberry",R.drawable.strawberry_pic);
-        maincontentList.add(r);
     }
 
     @Override

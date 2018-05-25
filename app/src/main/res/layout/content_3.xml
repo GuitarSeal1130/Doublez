@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar1"
+        android:id="@+id/toolbar3"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
@@ -14,12 +14,12 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <VideoView
-        android:id="@+id/video_view1"
+        android:id="@+id/video_view3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_content1"
+        android:id="@+id/recycler_content3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/main_background1"/>

@@ -181,11 +181,13 @@ public class ReadAACFileThread extends Thread {
     public double[] getCeps()
     {
         double[] x = audioUtil.getCeps();
-        double[] y=new double[13];
-        for (int i = 0; i < 13; i++)
+        double[] y=new double[12];  // 第2-13项系数
+        for (int i = 0; i < 12; i++)
         {
-            y[i]=x[i];
+            y[i]=x[i+1];
+            Log.d("MFCC",Double.toString(y[i]));
         }
+        Log.d("MFCC","-------------------------------");
 
         return y;
     }

@@ -24,11 +24,11 @@ public class Statistics
     {
         double[] y=new double[12];
         double abs=0;
-        for(int i=1;i<13;i++)
+        for(int i=0;i<12;i++)
             abs+=Math.pow(x[i],2);
         abs=Math.sqrt(abs);
         for(int i=0;i<12;i++)
-            y[i]=(x[i+1])/abs;
+            y[i]=(x[i])/abs;
         return y;
     }
     public static double dotProduct(double[] x,double[] y)
@@ -48,6 +48,17 @@ public class Statistics
         }
         return Math.sqrt(distance);
     }
+
+    public static double loss(double[] x,double[] y)
+    {
+        double sum=0;
+        for(int i=0;i<12;i++)
+        {
+            sum+=Math.abs(x[i]-y[i]);
+        }
+        return sum;
+    }
+
     public static double Score1(double[] x,double[] y)
     {
         return 50+(dotProduct(norm(x),norm(y)))*50;
@@ -56,5 +67,9 @@ public class Statistics
     public static double Score2(double[] x,double[] y)
     {
         return (2 - Odistance(norm(x), norm(y))) * 50;
+    }
+    public static double Score3(double[] x,double[] y)
+    {
+        return Math.exp(-0.1*loss(norm(x),norm(y)))*100;
     }
 }

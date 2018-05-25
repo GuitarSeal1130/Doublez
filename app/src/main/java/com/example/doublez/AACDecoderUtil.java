@@ -166,9 +166,11 @@ public class AACDecoderUtil {
         {
             if(i<outdata.length)
             {
-                byte bl = outdata[2 * i];
-                byte bh = outdata[2 * i + 1];
-                this.data[i] = ((bh & 0x00FF) << 8 | bl & 0x00FF);
+                byte b1 = outdata[4 * i];
+                byte b2 = outdata[4 * i + 1];
+                byte b3 = outdata[4 * i + 2];
+                byte b4 = outdata[4 * i + 3];
+                this.data[i] += ((b4 & 0x00FF)<<24 | (b3 & 0x00FF) << 16 | (b2 & 0x00FF) << 8 | (b1 & 0x00FF));
             }
             else
                 this.data[i]=0;
