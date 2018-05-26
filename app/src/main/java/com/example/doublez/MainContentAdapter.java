@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.List;
 
 
@@ -62,24 +64,19 @@ public class MainContentAdapter extends RecyclerView.Adapter<MainContentAdapter.
                         activity.startActivity(intent2);
                         break;
                     case "3":
-                        Intent intent3=new Intent(activity,Content_1.class);
-                        activity.startActivity(intent3);
+                        Toast.makeText(activity,"尚未开放！", Toast.LENGTH_SHORT).show();
                         break;
                     case "4":
-                        Intent intent4=new Intent(activity,Content_1.class);
-                        activity.startActivity(intent4);
+                        Toast.makeText(activity,"尚未开放！", Toast.LENGTH_SHORT).show();
                         break;
                     case "5":
-                        Intent intent5=new Intent(activity,Content_1.class);
-                        activity.startActivity(intent5);
+                        Toast.makeText(activity,"尚未开放！", Toast.LENGTH_SHORT).show();
                         break;
                     case "6":
-                        Intent intent6=new Intent(activity,Content_1.class);
-                        activity.startActivity(intent6);
+                        Toast.makeText(activity,"尚未开放！", Toast.LENGTH_SHORT).show();
                         break;
                     case "7":
-                        Intent intent7=new Intent(activity,Content_1.class);
-                        activity.startActivity(intent7);
+                        Toast.makeText(activity,"尚未开放！", Toast.LENGTH_SHORT).show();
                         break;
                     default:
                 }
