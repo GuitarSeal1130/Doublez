@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity
 
     private void initMainContent()
     {
-        MainContent a=new MainContent("1","La Polituque",R.drawable.la_politique);
+        MainContent a=new MainContent("1","La Politique",R.drawable.la_politique);
         maincontentList.add(a);
 
         MainContent b=new MainContent("2","La Gloire de mon Père 1",R.drawable.la_gloire_de_mon_pere);
